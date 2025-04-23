@@ -1,9 +1,7 @@
-<!-- CANINES LEARN PAGE -->
 {% extends "layout.html" %}
 
 {% block content %}
 <div class="learn-container">
-    <!-- Group Title and Description -->
     <h1 class="animal-group-title">Canines</h1>
     
     <!-- Characteristics List -->
@@ -15,7 +13,7 @@
         <li><i class="fas fa-paw"></i> Can draw an "X" through the print</li>
     </ul>
     
-    <!-- Flashcard Mode Toggle -->
+    <!-- Flashcard Mode  -->
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
@@ -27,7 +25,10 @@
             <div class="animal-card-inner">
                 <div class="animal-card-front">
                     <img src="{{ url_for('static', filename='images/wolf_image.jpg') }}" alt="Wolf" class="animal-image">
-                    <img src="{{ url_for('static', filename='images/wolf_track.png') }}" alt="Wolf Track" class="animal-print">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/wolf_track_front.png') }}" alt="Wolf Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/wolf_track_back.png') }}" alt="Wolf Back Track" class="animal-print">
+                    </div>
                     <h3 class="animal-name">Wolf</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
@@ -51,7 +52,10 @@
             <div class="animal-card-inner">
                 <div class="animal-card-front">
                     <img src="{{ url_for('static', filename='images/Coyote_image.jpg') }}" alt="Coyote" class="animal-image">
-                    <img src="{{ url_for('static', filename='images/coyote_track.png') }}" alt="Coyote Track" class="animal-print">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/coyote_track_front.png') }}" alt="Coyote Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/coyote_track_back.png') }}" alt="Coyote Back Track" class="animal-print">
+                    </div>
                     <h3 class="animal-name">Coyote</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
@@ -75,7 +79,10 @@
             <div class="animal-card-inner">
                 <div class="animal-card-front">
                     <img src="{{ url_for('static', filename='images/fox_image.jpg') }}" alt="Fox" class="animal-image">
-                    <img src="{{ url_for('static', filename='images/fox_track.png') }}" alt="Fox Track" class="animal-print">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/fox_track_front.png') }}" alt="Fox Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/fox_track_back.png') }}" alt="Fox Back Track" class="animal-print">
+                    </div>
                     <h3 class="animal-name">Fox</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
@@ -99,7 +106,10 @@
             <div class="animal-card-inner">
                 <div class="animal-card-front">
                     <img src="{{ url_for('static', filename='images/dog_image.jpg') }}" alt="Dog" class="animal-image">
-                    <img src="{{ url_for('static', filename='images/dog_track.png') }}" alt="Dog Track" class="animal-print">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/dog_track_front.png') }}" alt="Dog Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/dog_track_back.png') }}" alt="Dog Back Track" class="animal-print">
+                    </div>
                     <h3 class="animal-name">Dog</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
@@ -130,7 +140,6 @@
     </div>
 </div>
 
-<!-- JavaScript for Flashcard Mode -->
 <script>
     $(document).ready(function() {
         // Toggle flashcard mode
@@ -138,7 +147,6 @@
             $('#animalCardsContainer').toggleClass('flashcard-mode');
             $(this).toggleClass('active');
             
-            // Reset any flipped cards when toggling modes
             $('.animal-card-inner').removeClass('flipped');
         });
         

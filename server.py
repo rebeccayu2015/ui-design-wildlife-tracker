@@ -84,6 +84,9 @@ track_data = {
     },
 }
 
+# initializing quiz score
+quiz_score = 0
+
 # dictionary for dialogues
 dialogue_data = {
     "1": {
@@ -138,42 +141,42 @@ suspects_data = {
         "suspect_id": "1",
         "name": "Brianna the Bear",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/grizzy_bear_track_front.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/bear_single.png",
         "family": "bears"
     },
     "2": {
         "suspect_id": "2",
         "name": "Rebecca the Raccoon",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_track_front.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_single.png",
         "family": "small mammals"
     },
     "3": {
         "suspect_id": "3",
         "name": "Emily the Elk",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_track_front.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_single.png",
         "family": "hoofs (large)"
     },
     "4": {
         "suspect_id": "4",
         "name": "Claire the Coyote",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_track_back.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_single.png",
         "family": "canines"
     },
     "5": {
         "suspect_id": "5",
         "name": "Ann the Armadillo",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_track_front.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_single.png",
         "family": "small mammals"
     },
     "6": {
         "suspect_id": "6",
         "name": "Shar the Squirrel",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_track_front.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_single.png",
         "family": "rodents"
     }
 }
@@ -199,6 +202,29 @@ clues_data = {
         "clue_id": "5",
         "text": "The print had five rounded toes."
     }
+}
+
+# dictionary for sort prints user responses
+sort_prints_responses = {
+    "canines": [],
+    "felines": [],
+    "bears": [],
+    "hoofs (large)": [],
+    "hoofs (small)": [],
+    "rodents": [],
+    "small mammals": [],
+    "reptiles/amphibians": [],
+    "birds": []
+}
+
+# dictionary for match prints user responses
+match_prints_responses = {
+    "Brianna the Bear": "",
+    "Rebecca the Raccoon": "",
+    "Emily the Elk": "",
+    "Claire the Coyote": "",
+    "Ann the Armadillo": "",
+    "Shar the Squirrel": ""
 }
 
 

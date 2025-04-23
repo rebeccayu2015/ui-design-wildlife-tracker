@@ -102,7 +102,6 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Learn Page Styles */
 .learn-container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -181,7 +180,7 @@ body {
   box-shadow: var(--box-shadow);
   overflow: hidden;
   position: relative;
-  height: 350px;
+  height: 400px;
   perspective: 1000px;
   cursor: default;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -221,6 +220,9 @@ body {
 
 .animal-card-front {
   background-color: var(--white);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .animal-card-back {
@@ -256,29 +258,42 @@ body {
   font-size: 1.2rem;
 }
 
-.animal-print {
-  width: 28%;
-  height: auto;
-  margin: 0.25rem auto;
-  display: block;
-}
-
 .animal-image {
   width: 100%;
-  height: 60%;
+  height: 220px;
   object-fit: cover;
+}
+
+.track-images-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.animal-print {
+  width: 43%;
+  height: auto;
+  object-fit: contain;
 }
 
 .animal-name {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--primary-color);
-  margin: 0.25rem 0 0.5rem;
+  margin: auto 0 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 .info-icon {
   position: absolute;
-  bottom: 1rem;
+  bottom: 1.5rem;
   left: 1rem;
   width: 2.25rem;
   height: 2.25rem;
