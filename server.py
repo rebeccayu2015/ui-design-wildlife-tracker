@@ -275,6 +275,41 @@ track_characteristics = {
 }
 
 
+patterns = [
+        {
+            "name": "Zig-Zaggers",
+            "track_img": "images/track_patterns/zig-zaggers.png",
+            "animal_imgs": [
+                "images/track_patterns/dear.gif",
+                "images/track_patterns/wolf.gif"
+            ]
+        },
+        {
+            "name": "Leapers/Hoppers",
+            "track_img": "images/track_patterns/leapers-hoppers.png",
+            "animal_imgs": [
+                "images/track_patterns/bunny.gif",
+                "images/track_patterns/bunny.gif"
+            ]
+        },
+        {
+            "name": "Bounders",
+            "track_img": "images/track_patterns/bounders.png",
+            "animal_imgs": [
+                "images/track_patterns/otter.gif",
+                "images/track_patterns/otter.gif"
+            ]
+        },
+        {
+            "name": "Waddlers",
+            "track_img": "images/track_patterns/waddlers.png",
+            "animal_imgs": [
+                "images/track_patterns/bear.gif",
+                "images/track_patterns/bear.gif"
+            ]
+        },
+    ]
+
 #user activity logs
 activity_logger = logging.getLogger("learn_logger")
 activity_logger.setLevel(logging.INFO)
@@ -316,6 +351,11 @@ def learn_canines():
 def track_characteristics_page():
     record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
+
+@app.route('/learn/track-patterns')
+def track_patterns():
+    return render_template('learn/track_patterns.html', patterns=patterns)
+
 
 @app.route('/quiz/<id>')
 def view(id=None):
