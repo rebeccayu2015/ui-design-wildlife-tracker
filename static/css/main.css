@@ -417,3 +417,59 @@ body {
     align-items: center;
   }
 }
+
+
+/* learn.html */
+
+.learn-link{
+  text-decoration:none;
+  color:black;
+}
+
+.learn-h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  justify-items: center;
+  padding: 30px;
+}
+.learn-grid-wide{
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 20px 0;
+}
+.learn-folder, .learn-animal {
+  background-color: #e0e0e0;
+  padding: 10px;
+  /* border-radius: 8px; */
+  width: 275px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: solid black 1px;
+}
+.learn-folder:hover, .learn-animal:hover {
+  transform: scale(1.02);
+}
+.learn-folder img, .learn-animal img {
+  width: 60px;
+  height: auto;
+}
+.learn-bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+}
+.learn-bottom-nav a {
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  background-color: #dcdcdc;
+  border-radius: 6px;
+}
