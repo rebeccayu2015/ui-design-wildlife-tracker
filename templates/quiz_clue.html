@@ -1,0 +1,25 @@
+<!-- HOME PAGE -->
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Quiz: Clues</h1>
+
+<div class="clue-wrapper">
+    <div class="instructions-container">
+        <div>Read each clue. If you think you know the culprit, click “Identify the Culprit!”</div>
+        <div>Note: Using more clues and especially framing the wrong suspect will lower your final score!</div>
+    </div>
+    <div class="clue-container">
+        <div>Clue #{{ id - 10 }}</div>
+        <div class="clue">{{ clues[id|string]['text'] }}</div>
+        <div class="button-row">
+            <a href="/quiz/16" class="btn btn-primary">Identify the Culprit!</a>
+            {% if id != 15 %}
+            <a href="/quiz/{{ id + 1 }}" class="btn btn-dark">Next</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<a href="/" class="btn btn-dark home-btn">Back to Home</a>
+{% endblock %}
