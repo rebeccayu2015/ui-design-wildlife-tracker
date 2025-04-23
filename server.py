@@ -84,6 +84,90 @@ track_data = {
     },
 }
 
+# dictionary for dialogues
+dialogue_data = {
+    "1": {
+        "dialogue_id": "1",
+        "text": "Oh no!! It’s all over the news. Your neighbor Amy was found dead in the woods.",
+    },
+    "2": {
+        "dialogue_id": "2",
+        "text": "The only clues are the tracks left by animals passing through the area at the time of her death.",
+    },
+    "3": {    
+        "dialogue_id": "3", 
+        "text": "As the only detective on this case, your job is to investigate these tracks and identify the culprit. Good luck!",
+    }
+}
+
+# dictionary for tasks
+tasks_data = {
+    "1": {
+        "task_id": "1",
+        "text": "Collect evidence from crime scene"
+    },
+    "2": {
+        "task_id": "2",
+        "text": "Sort prints into groups"
+    },
+    "3": {
+        "task_id": "3",
+        "text": "Match prints to suspects"
+    },
+    "4": {    
+        "task_id": "4", 
+        "text": "Identify the culprit"
+    }
+}
+
+# dictionary for suspects (image, name, track, family)
+suspects_data = {
+    "1": {
+        "suspect_id": "1",
+        "name": "Brianna the Bear",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "wolf",
+        "family": "canines"
+    },
+    "2": {
+        "suspect_id": "2",
+        "name": "Jane Doe",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "coyote",
+        "family": "canines"
+    },
+    "3": {
+        "suspect_id": "3",
+        "name": "Bob Smith",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "cougar",
+        "family": "felines"
+    },
+    "4": {
+        "suspect_id": "4",
+        "name": "Alice Johnson",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "lynx",
+        "family": "felines"
+    },
+    "5": {
+        "suspect_id": "5",
+        "name": "John Doe",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "wolf",
+        "family": "canines"
+    },
+    "6": {
+        "suspect_id": "6",
+        "name": "Jane Doe",
+        "suspect_image": "<insert GitHub link>",
+        "track_image": "coyote",
+        "family": "canines"
+    }
+}
+# dictionary for clues
+
+
 
 # ==================================================================================================================
 # ROUTES
