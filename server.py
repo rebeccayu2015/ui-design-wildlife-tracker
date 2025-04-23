@@ -96,9 +96,12 @@ def home():
 def learn():
     return render_template('learn.html')   
 
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
+@app.route('/quiz/<id>')
+def view(id=None):
+    if id == '1' or id == '2' or id == '3' or id == '8' or id == '9' or id == '10':
+        return render_template('quiz_dialogue.html', dialogue=dialogue_data[])
+    else:
+        return render_template('quiz.html')
 
 @app.route('/quiz-result')
 def quiz_result():
