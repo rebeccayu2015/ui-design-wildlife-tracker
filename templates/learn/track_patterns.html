@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="track-char-container">
+  <h2 class="track-char-heading">Track Patterns</h2>
+  <p style="text-align: center; max-width: 800px; margin: auto; font-size: 1.1rem;">
+    There are four unique track patterns that will help you narrow down the group of animals that are responsible for the print.
+  </p>
+
+  <div class="track-patterns-grid">
+    {% for pattern in patterns %}
+      <div class="pattern-card">
+        <h3>{{ pattern.name }}</h3>
+        <img src="{{ url_for('static', filename=pattern.track_img) }}" alt="Track pattern" class="track-pattern-img"/>
+        <img src="{{ url_for('static', filename=pattern.animal_imgs[0]) }}" alt="Animal gif" class="pattern-gif" id="pattern-img-{{ loop.index0 }}">
+        <div class="pattern-controls">
+          <button onclick="prevGif({{ loop.index0 }})">&#9664;</button>
+          <button onclick="nextGif({{ loop.index0 }})">&#9654;</button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="navigation-buttons-row">
+    <a href="/learn" class="nav-button back">
+      <i class="fas fa-arrow-left"></i> Back to Learn
+    </a>
+    <div class="learning-label">Learning: track patterns</div>
+  </div>
+</div>
+
+<script>
+  const patterns = {{ patterns|tojson }};
+  const currentGifIndexes = Array(patterns.length).fill(0);
+
+  function updateGif(patternIndex) {
+    const img = document.getElementById(`pattern-img-${patternIndex}`);
+    img.src = `/static/${patterns[patternIndex].animal_imgs[currentGifIndexes[patternIndex]]}`;
+  }
+
+  function nextGif(patternIndex) {
+    currentGifIndexes[patternIndex] = (currentGifIndexes[patternIndex] + 1) % patterns[patternIndex].animal_imgs.length;
+    updateGif(patternIndex);
+  }
+
+  function prevGif(patternIndex) {
+    currentGifIndexes[patternIndex] = (currentGifIndexes[patternIndex] - 1 + patterns[patternIndex].animal_imgs.length) % patterns[patternIndex].animal_imgs.length;
+    updateGif(patternIndex);
+  }
+</script>
+{% endblock %}

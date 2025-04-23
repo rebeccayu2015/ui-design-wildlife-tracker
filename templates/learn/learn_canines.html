@@ -1,10 +1,105 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<style>
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-bottom: 10px;
+        overflow-x: auto;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 250px;
+        min-width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    .animal-name {
+        font-size: 1.25rem !important;
+        bottom: 10px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .info-icon {
+        bottom: 10px !important;
+    }
+    
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
+    .navigation-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        clear: both !important;
+    }
+    
+    .navigation-buttons .nav-button {
+        position: relative !important;
+        flex: 0 0 auto !important;
+        display: inline-block !important;
+        font-size: 0.9rem !important;
+        padding: 0.6rem 1rem !important;
+        background-color: #f5f5f5 !important;
+        color: var(--primary-color) !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .navigation-buttons .nav-button:hover {
+        background-color: var(--secondary-color) !important;
+        color: white !important;
+    }
+    
+    .navigation-buttons .back {
+        margin-right: auto !important;
+    }
+    
+    .navigation-buttons .next {
+        margin-left: auto !important;
+    }
+    
+    @media (max-width: 1100px) {
+        #animalCardsContainer {
+            flex-wrap: wrap;
+        }
+        
+        #animalCardsContainer .animal-card {
+            width: 250px;
+            min-width: 200px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        #animalCardsContainer .animal-card {
+            width: 90%;
+            max-width: 300px;
+        }
+        
+        .navigation-buttons {
+            flex-wrap: nowrap !important;
+        }
+    }
+</style>
+
 <div class="learn-container">
     <h1 class="animal-group-title">Canines</h1>
     
-    <!-- Characteristics List -->
     <ul class="characteristics-list">
         <li><i class="fas fa-paw"></i> Oval shape with four toes and a heel pad that is concave at the bottom</li>
         <li><i class="fas fa-paw"></i> Four toes that point forward with two front toes lined up</li>
@@ -13,13 +108,12 @@
         <li><i class="fas fa-paw"></i> Can draw an "X" through the print</li>
     </ul>
     
-    <!-- Flashcard Mode  -->
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
     <!-- Animal Cards Container -->
-    <div class="animal-cards-container" id="animalCardsContainer">
+    <div class="animal-cards-container-center" id="animalCardsContainer">
         <!-- Wolf Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
@@ -34,24 +128,20 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Largest print (4 to 5"). Deep impression. Clear claw marks.</p>
+                        <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Wolf</h3>
-                    <p>Largest print (4 to 5")</p>
-                    <p>Deep impression</p>
-                    <p>Clear claw marks</p>
-                    <p>X-shaped negative space</p>
+                    <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
                 </div>
             </div>
         </div>
         
-        <!-- Coyote Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/Coyote_image.jpg') }}" alt="Coyote" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/Coyote_image.png') }}" alt="Coyote" class="animal-image">
                     <div class="track-images-container">
                         <img src="{{ url_for('static', filename='images/coyote_track_front.png') }}" alt="Coyote Front Track" class="animal-print">
                         <img src="{{ url_for('static', filename='images/coyote_track_back.png') }}" alt="Coyote Back Track" class="animal-print">
@@ -61,20 +151,16 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Medium print (2.5 to 3.5"). Narrower than wolf.</p>
+                        <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Coyote</h3>
-                    <p>Medium print (2.5 to 3.5")</p>
-                    <p>Narrower than wolf</p>
-                    <p>Often shows nail marks</p>
-                    <p>Less defined heel pad</p>
+                    <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
                 </div>
             </div>
         </div>
         
-        <!-- Fox Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -88,20 +174,16 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Smallest print (2 to 3"). Fuzzy due to hair on paws.</p>
+                        <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Fox</h3>
-                    <p>Smallest print (2 to 3")</p>
-                    <p>Fuzzy due to hair on paws</p>
-                    <p>Small pad imprint</p>
-                    <p>Sometimes shows tail drag</p>
+                    <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
                 </div>
             </div>
         </div>
         
-        <!-- Dog Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -115,34 +197,29 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Variable size. Rounder than wild canines.</p>
+                        <p>Domestic dogs walk in zig-zag patterns rather than straight lines. Their toes often splay outward with blunter nail prints than wild canines.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Dog</h3>
-                    <p>Variable size based on breed</p>
-                    <p>Rounder than wild canines</p>
-                    <p>Less symmetrical</p>
-                    <p>Random walking pattern</p>
+                    <p>Domestic dogs walk in zig-zag patterns rather than straight lines. Their toes often splay outward with blunter nail prints than wild canines.</p>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Navigation Buttons -->
     <div class="navigation-buttons">
-        <a href="/" class="nav-button back">
-            <i class="fas fa-arrow-left"></i> Back to Home
+        <a href="{{ url_for('learn') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Back to Learn
         </a>
-        <a href="#" class="nav-button next">
-            Next Group <i class="fas fa-arrow-right"></i>
+        <a href="{{ url_for('learn_felines') }}" class="nav-button next">
+            Next: Felines <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 </div>
 
 <script>
     $(document).ready(function() {
-        // Toggle flashcard mode
         $('#flashcardToggle').click(function() {
             $('#animalCardsContainer').toggleClass('flashcard-mode');
             $(this).toggleClass('active');
@@ -150,7 +227,6 @@
             $('.animal-card-inner').removeClass('flipped');
         });
         
-        // In flashcard mode, clicking a card will flip it
         $('.animal-card').click(function() {
             if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
                 $(this).find('.animal-card-inner').toggleClass('flipped');
