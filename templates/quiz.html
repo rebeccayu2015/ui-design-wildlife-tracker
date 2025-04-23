@@ -1,9 +1,15 @@
-<!-- HOME PAGE -->
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Content here -->
-<h1>
-    Quiz
-</h1>
+<h2>Quiz: Question {{ question_id }}</h2>
+<form method="post">
+  <p>Placeholder for question {{ question_id }}.</p>
+  <div class="form-group">
+    <label><input type="radio" name="answer" value="a"> Option A</label><br>
+    <label><input type="radio" name="answer" value="b"> Option B</label><br>
+    <label><input type="radio" name="answer" value="c"> Option C</label><br>
+    <label><input type="radio" name="answer" value="d"> Option D</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 {% endblock %}

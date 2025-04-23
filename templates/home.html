@@ -2,22 +2,37 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Content here -->
-<h1>
-    Welcome to Wildlife Tracking
-</h1>
-
-<h2>
-    Learn how to group and identify the tracks of North American animals!
-</h2>
-
-<div>
-    Learn
-    <img src="" alt="">
-</div>
-
-<div>
-    Quiz
-    <img src="" alt="">
+<div class="homepage-container">
+    <div class="text-center mb-5">
+        <h1 class="display-3 fw-bold mt-5 mb-4">Welcome to Wildlife Tracking</h1>
+        <p class="lead fs-4 mb-5">Learn how to identify the tracks of North American animals!</p>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <a href="/learn" class="feature-card">
+                <div class="card text-center py-5">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Learn</h2>
+                        <div class="icon-container">
+                            <i class="fas fa-search icon-large"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-5">
+            <a href="/quiz" class="feature-card">
+                <div class="card text-center py-5">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Quiz</h2>
+                        <div class="icon-container">
+                            <i class="fas fa-question icon-large"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
