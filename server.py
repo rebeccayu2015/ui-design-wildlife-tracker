@@ -214,6 +214,16 @@ sort_prints_responses = {
     "birds": []
 }
 
+# dictionary for match prints user responses
+match_prints_responses = {
+    "Brianna the Bear": "",
+    "Rebecca the Raccoon": "",
+    "Emily the Elk": "",
+    "Claire the Coyote": "",
+    "Ann the Armadillo": "",
+    "Shar the Squirrel": ""
+}
+
 
 # ==================================================================================================================
 # ROUTES
