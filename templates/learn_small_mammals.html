@@ -1,0 +1,257 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling for 2 rows of 3 cards each */
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-bottom: 10px;
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 250px;
+        min-width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    /* Make animal name font smaller to avoid collision with info icon */
+    .animal-name {
+        font-size: 1.25rem !important;
+        bottom: 15px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Move info icon up to prevent it being cut off */
+    .info-icon {
+        bottom: 15px !important;
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
+    @media (max-width: 900px) {
+        #animalCardsContainer .animal-card {
+            width: 220px;
+            min-width: 180px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        #animalCardsContainer .animal-card {
+            width: 80%;
+            max-width: 280px;
+        }
+    }
+    
+    /* Fix navigation buttons layout */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        width: 100%;
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Small Mammals</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Small to medium paw prints (under 2 inches)</li>
+        <li><i class="fas fa-paw"></i> Often show four or five toes</li>
+        <li><i class="fas fa-paw"></i> Tracks frequently appear in groups or patterns</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Raccoon Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/raccoon_image.png') }}" alt="Raccoon" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/raccoon_track_front.png') }}" alt="Raccoon Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/raccoon_track_back.png') }}" alt="Raccoon Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Raccoon</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Raccoons have five toes resembling a human hand. Front print is smaller (1-3") with C-shaped heel pad, rear print has longer heel pad (1.5-4").</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Raccoon</h3>
+                    <p>Raccoons have five toes resembling a human hand. Front print is smaller (1-3") with C-shaped heel pad, rear print has longer heel pad (1.5-4").</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Opossum Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/opossum_image.png') }}" alt="Opossum" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/opossum_track_front.png') }}" alt="Opossum Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/opossum_track_back.png') }}" alt="Opossum Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Opossum</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Opossum tracks resemble raccoons but have opposable thumbs on hind feet - the only North American mammal with this feature.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Opossum</h3>
+                    <p>Opossum tracks resemble raccoons but have opposable thumbs on hind feet - the only North American mammal with this feature.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skunk Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/skunk_image.png') }}" alt="Skunk" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/skunk_track_front.png') }}" alt="Skunk Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/skunk_track_back.png') }}" alt="Skunk Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Skunk</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Skunks have five toes on both front and hind feet, with visible claws. Unlike most mammals, their front and hind feet are similar in size.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Skunk</h3>
+                    <p>Skunks have five toes on both front and hind feet, with visible claws. Unlike most mammals, their front and hind feet are similar in size.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Otter Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/otter_image.png') }}" alt="Otter" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/otter_track_front.png') }}" alt="Otter Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/otter_track_back.png') }}" alt="Otter Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Otter</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Otters have five toes and short claws giving their prints a pointed look. Often leave belly-slide troughs along riverbanks.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Otter</h3>
+                    <p>Otters have five toes and short claws giving their prints a pointed look. Often leave belly-slide troughs along riverbanks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rabbit Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/rabbit_image.png') }}" alt="Rabbit" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/rabbit_track_front.png') }}" alt="Rabbit Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/rabbit_track_back.png') }}" alt="Rabbit Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Rabbit</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Rabbits place larger hind feet ahead of smaller front feet. Their staggered feet pattern produces a distinctive "Y" shape.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Rabbit</h3>
+                    <p>Rabbits place larger hind feet ahead of smaller front feet. Their staggered feet pattern produces a distinctive "Y" shape.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Armadillo Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/armadillo_image.png') }}" alt="Armadillo" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/armadillo_track_front.png') }}" alt="Armadillo Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/armadillo_track_back.png') }}" alt="Armadillo Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Armadillo</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Armadillos have four long toes with sharp claws. Front print shows distinct "V" between middle toes, often with tail drag marks.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Armadillo</h3>
+                    <p>Armadillos have four long toes with sharp claws. Front print shows distinct "V" between middle toes, often with tail drag marks.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_rodents') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Rodents
+        </a>
+        <a href="{{ url_for('learn_reptiles_amphibians') }}" class="nav-button next">
+            Next: Reptiles & Amphibians <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

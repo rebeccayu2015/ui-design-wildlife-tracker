@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="learn-container">
+    <h1 class="animal-group-title">Deer</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Large hoofed mammals</li>
+        <li><i class="fas fa-paw"></i> Heart-shaped tracks with two toes</li>
+        <li><i class="fas fa-paw"></i> Track sizes vary by species and age</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- White-tailed Deer Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/whitetail_deer_image.png') }}" alt="White-tailed Deer" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/whitetail_deer_track.png') }}" alt="White-tailed Deer Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">White-tailed Deer</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Heart-shaped track with pointed toe.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>White-tailed Deer</h3>
+                    <p>Heart-shaped track</p>
+                    <p>Length: 2-3 inches</p>
+                    <p>More pointed at the toe</p>
+                    <p>Common in forests and woodland edges</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mule Deer Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/mule_deer_image.png') }}" alt="Mule Deer" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/mule_deer_track.png') }}" alt="Mule Deer Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Mule Deer</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Larger track with more rounded shape.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Mule Deer</h3>
+                    <p>Slightly larger than whitetail</p>
+                    <p>More rounded shape</p>
+                    <p>Length: 3-4 inches</p>
+                    <p>Common in mountains and plateaus</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elk Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/elk_image.png') }}" alt="Elk" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/elk_track.png') }}" alt="Elk Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Elk</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Large, rounded track with blunt toes.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Elk</h3>
+                    <p>Much larger than deer</p>
+                    <p>Rounded track with blunt toes</p>
+                    <p>Length: 4-5 inches</p>
+                    <p>Found in mountains and forests</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Moose Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/moose_image.png') }}" alt="Moose" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/moose_track.png') }}" alt="Moose Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Moose</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Largest deer track, elongated shape.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Moose</h3>
+                    <p>Largest deer species track</p>
+                    <p>Length: 5-7 inches</p>
+                    <p>More elongated shape</p>
+                    <p>Found near wetlands and forests</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fawn Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/fawn_image.png') }}" alt="Fawn" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/fawn_track.png') }}" alt="Fawn Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Fawn</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Miniature version of adult deer tracks.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Fawn</h3>
+                    <p>Small, dainty tracks</p>
+                    <p>Length: 1-1.5 inches</p>
+                    <p>Similar shape to adult</p>
+                    <p>Often found with adult tracks nearby</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="/learn/reptiles-amphibians" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Reptiles & Amphibians
+        </a>
+        <a href="/learn/birds" class="nav-button next">
+            Next: Birds <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

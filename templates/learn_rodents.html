@@ -1,0 +1,217 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling to make all 5 cards fit on one line */
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 10px; /* Add padding to prevent cutoff */
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 220px;
+        min-width: 180px;
+        margin-bottom: 10px; /* Add margin to prevent cutoff */
+    }
+    
+    /* Make animal name font smaller to avoid collision with info icon */
+    .animal-name {
+        font-size: 1.25rem !important; /* Smaller font */
+        bottom: 15px !important; /* Move name up to center with info icon */
+        margin-bottom: 0 !important;
+    }
+    
+    /* Move info icon up to prevent it being cut off */
+    .info-icon {
+        bottom: 15px !important;
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 0 !important; /* Prevent paragraph cutoff */
+    }
+    
+    @media (max-width: 1200px) {
+        #animalCardsContainer {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Rodents</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Very diverse group of mammals</li>
+        <li><i class="fas fa-paw"></i> Front tracks with four toes and hind tracks with five toes</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Beaver Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/beaver_image.png') }}" alt="Beaver" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/beaver_track_front.png') }}" alt="Beaver Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/beaver_track_back.png') }}" alt="Beaver Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Beaver</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Beavers have webbed hind feet with 5 toes (4.5-7"). Hind prints often wipe out front prints, and their tail may erase all tracks.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Beaver</h3>
+                    <p>Beavers have webbed hind feet with 5 toes (4.5-7"). Hind prints often wipe out front prints, and their tail may erase all tracks.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Porcupine Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/porcupine_image.png') }}" alt="Porcupine" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/porcupine_track_front.png') }}" alt="Porcupine Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/porcupine_track_back.png') }}" alt="Porcupine Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Porcupine</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Porcupines move slowly and have big heel pads and long toes with claws. Prints (1-2") show mostly pads with rough surfaces for climbing.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Porcupine</h3>
+                    <p>Porcupines move slowly and have big heel pads and long toes with claws. Prints (1-2") show mostly pads with rough surfaces for climbing.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Muskrat Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/muskrat_image.png') }}" alt="Muskrat" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/muskrat_track_front.png') }}" alt="Muskrat Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/muskrat_track_back.png') }}" alt="Muskrat Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Muskrat</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Muskrat tracks are hand-like like raccoons but smaller (2-3"). Five long toes on hind feet, four on front, found near marshes and ponds.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Muskrat</h3>
+                    <p>Muskrat tracks are hand-like like raccoons but smaller (2-3"). Five long toes on hind feet, four on front, found near marshes and ponds.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mouse Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/mouse_image.png') }}" alt="Mouse" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/mouse_track_front.png') }}" alt="Mouse Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/mouse_track_back.png') }}" alt="Mouse Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Mouse</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Mice are hoppers with larger back feet (0.5-1") landing ahead of smaller front feet (0.25-0.5"), producing clusters of four prints with possible tail drag.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Mouse</h3>
+                    <p>Mice are hoppers with larger back feet (0.5-1") landing ahead of smaller front feet (0.25-0.5"), producing clusters of four prints with possible tail drag.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Squirrel Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/squirrel_image.png') }}" alt="Squirrel" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/squirrel_track_front.png') }}" alt="Squirrel Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/squirrel_track_back.png') }}" alt="Squirrel Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Squirrel</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Squirrels hop with larger back feet (1.5-2") landing ahead of smaller front feet (1-1.5"), creating a repeating series of four side-by-side prints.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Squirrel</h3>
+                    <p>Squirrels hop with larger back feet (1.5-2") landing ahead of smaller front feet (1-1.5"), creating a repeating series of four side-by-side prints.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_hoofs_small') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Hoofs (Small)
+        </a>
+        <a href="{{ url_for('learn_small_mammals') }}" class="nav-button next">
+            Next: Small Mammals <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

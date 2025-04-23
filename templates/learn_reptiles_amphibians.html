@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding-bottom: 10px;
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 300px;
+        min-width: 280px;
+        margin-bottom: 20px;
+    }
+    
+    .animal-name {
+        font-size: 1.25rem !important;
+        bottom: 15px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .info-icon {
+        bottom: 15px !important;
+    }
+    
+    .animal-card-back p:before {
+        content: none;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
+    @media (max-width: 900px) {
+        #animalCardsContainer .animal-card {
+            width: 280px;
+            min-width: 260px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        #animalCardsContainer .animal-card {
+            width: 90%;
+            max-width: 300px;
+        }
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Reptiles & Amphibians</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Distinctive patterns with tail drags (reptiles)</li>
+        <li><i class="fas fa-paw"></i> Webbed foot impressions (amphibians)</li>
+        <li><i class="fas fa-paw"></i> Often found near water sources</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Alligator Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/alligator_image.png') }}" alt="Alligator" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/alligator_track_front.png') }}" alt="Alligator Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/alligator_track_back.png') }}" alt="Alligator Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Alligator</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>The first thing you notice is the large tail trough with pairs of prints on either side.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Alligator</h3>
+                    <p>Look for a central tail trough with prints on either side. Front feet have five toes with wide heels, rear feet have four toes with narrow, pointed heels.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lizard Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/lizard_image.png') }}" alt="Lizard" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/lizard_track_front.png') }}" alt="Lizard Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/lizard_track_back.png') }}" alt="Lizard Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Lizard</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Lightweight with faint tracks, showing light foot scuffs and a straight tail drag.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Lizard</h3>
+                    <p>Lightweight animals leaving faint tracks with light foot scuffs and straight tail drags, more pronounced than those of mice.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Frog Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/frog_image.png') }}" alt="Frog" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/frog_track_front.png') }}" alt="Frog Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/frog_track_back.png') }}" alt="Frog Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Frog</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Four front toes in K-shape and five rear toes, with front feet often landing between their larger hind feet.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Frog</h3>
+                    <p>Four bulbous toes on front feet (K-shaped) and five on hind feet. Hoppers with front feet landing between larger hind feet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_small_mammals') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Small Mammals
+        </a>
+        <a href="{{ url_for('learn_birds') }}" class="nav-button next">
+            Next: Birds <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling for centered cards in a single row */
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1.5rem;
+        padding-bottom: 10px;
+        overflow-x: auto;
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 250px;
+        min-width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    /* Make animal name font smaller to avoid collision with info icon */
+    .animal-name {
+        font-size: 1.25rem !important;
+        bottom: 15px !important;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Move info icon up to prevent it being cut off */
+    .info-icon {
+        bottom: 15px !important;
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
+    @media (max-width: 900px) {
+        #animalCardsContainer {
+            flex-wrap: wrap;
+        }
+        
+        #animalCardsContainer .animal-card {
+            width: 220px;
+            min-width: 180px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        #animalCardsContainer .animal-card {
+            width: 90%;
+            max-width: 300px;
+        }
+    }
+    
+    /* Fix navigation buttons layout */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        width: 100%;
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Birds</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-feather"></i> Tree dwellers tend to hop, leaving paired prints</li>
+        <li><i class="fas fa-feather"></i> Ground birds leave alternating track patterns</li>
+        <li><i class="fas fa-feather"></i> Most birds have three forward toes, game birds may lack backward toe</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Crow Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/crow_image.png') }}" alt="Crow" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/crow_track_front.png') }}" alt="Crow Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/crow_track_back.png') }}" alt="Crow Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Crow</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Standard bird track with three forward-facing toes and one rear-facing toe, leaving paired prints.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Crow</h3>
+                    <p>Standard bird track with three thin forward-facing toes and one rear-facing toe. Hoppers that leave pairs of prints 2-2.5" long</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grouse Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/grouse_image.png') }}" alt="Grouse" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/grouse_track_front.png') }}" alt="Grouse Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/grouse_track_back.png') }}" alt="Grouse Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Grouse</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Small ground birds with only three forward-facing toes, measuring about 2" long.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Grouse</h3>
+                    <p>Small ground birds with game bird track pattern. Only three forward-facing toes. Tracks measure about 2" long</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Turkey Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/turkey_image.png') }}" alt="Turkey" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/turkey_track_front.png') }}" alt="Turkey Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/turkey_track_back.png') }}" alt="Turkey Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Turkey</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Ground bird with three forward-facing toes similar to grouse but much larger at 4" long.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Turkey</h3>
+                    <p>Ground bird with game bird track pattern like grouse. Much larger than grouse at 4" long. Three forward-facing toes only</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Duck Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/duck_image.png') }}" alt="Duck" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/duck_track_front.png') }}" alt="Duck Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/duck_track_back.png') }}" alt="Duck Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Duck</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Same toe arrangement as game birds, but with webbing creating distinctive shape.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Duck</h3>
+                    <p>Same toe arrangement as game birds but with webbing. Webbing gives print a distinctive shape. Tend to wander and leave maze-like track patterns</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_reptiles_amphibians') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Reptiles & Amphibians
+        </a>
+        <a href="{{ url_for('learn') }}" class="nav-button next">
+            Back to Categories <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

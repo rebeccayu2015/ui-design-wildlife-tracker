@@ -30,16 +30,6 @@
         bottom: 10px !important;
     }
     
-    .animal-card-back p:before {
-        content: none !important;
-    }
-    
-    .animal-card-back p {
-        padding-left: 0 !important;
-        text-align: center;
-        margin-bottom: 0 !important;
-    }
-    
     .navigation-buttons {
         display: flex !important;
         flex-direction: row !important;
@@ -74,6 +64,16 @@
         margin-left: auto !important;
     }
     
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
     @media (max-width: 1100px) {
         #animalCardsContainer {
             flex-wrap: wrap;
@@ -98,42 +98,39 @@
 </style>
 
 <div class="learn-container">
-    <h1 class="animal-group-title">Canines</h1>
+    <h1 class="animal-group-title">Felines</h1>
     
     <ul class="characteristics-list">
-        <li><i class="fas fa-paw"></i> Oval shape with four toes and a heel pad that is concave at the bottom</li>
-        <li><i class="fas fa-paw"></i> Four toes that point forward with two front toes lined up</li>
-        <li><i class="fas fa-paw"></i> Claws visible and point forward</li>
-        <li><i class="fas fa-paw"></i> Fore prints significantly larger than hind print</li>
-        <li><i class="fas fa-paw"></i> Can draw an "X" through the print</li>
+        <li><i class="fas fa-paw"></i> Four toes and a heel pad with three lobes at the bottom edges that are shaped like a bubble letter "M"</li>
+        <li><i class="fas fa-paw"></i> Prints are as wide as they are long, with no claws visible</li>
+        <li><i class="fas fa-paw"></i> Leading toe</li>
+        <li><i class="fas fa-paw"></i> Can draw a "C" between the pad and toes of the print</li>
     </ul>
     
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
-    <!-- Animal Cards Container -->
-    <div class="animal-cards-container-center" id="animalCardsContainer">
-        <!-- Wolf Card -->
+    <div class="animal-cards-container" id="animalCardsContainer">
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/wolf_image.jpg') }}" alt="Wolf" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/cougar_image.png') }}" alt="Cougar" class="animal-image">
                     <div class="track-images-container">
-                        <img src="{{ url_for('static', filename='images/wolf_track_front.png') }}" alt="Wolf Front Track" class="animal-print">
-                        <img src="{{ url_for('static', filename='images/wolf_track_back.png') }}" alt="Wolf Back Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/cougar_track_front.png') }}" alt="Cougar Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/cougar_track_back.png') }}" alt="Cougar Back Track" class="animal-print">
                     </div>
-                    <h3 class="animal-name">Wolf</h3>
+                    <h3 class="animal-name">Cougar</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
+                        <p>Among the felines, cougar tracks are the largest (greater than 3"), about the size of the domestic dog.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
-                    <h3>Wolf</h3>
-                    <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
+                    <h3>Cougar</h3>
+                    <p>Among the felines, cougar tracks are the largest (greater than 3"), about the size of the domestic dog.</p>
                 </div>
             </div>
         </div>
@@ -141,22 +138,22 @@
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/Coyote_image.png') }}" alt="Coyote" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/lynx_image.png') }}" alt="Lynx" class="animal-image">
                     <div class="track-images-container">
-                        <img src="{{ url_for('static', filename='images/coyote_track_front.png') }}" alt="Coyote Front Track" class="animal-print">
-                        <img src="{{ url_for('static', filename='images/coyote_track_back.png') }}" alt="Coyote Back Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/lynx_track_front.png') }}" alt="Lynx Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/lynx_track_back.png') }}" alt="Lynx Back Track" class="animal-print">
                     </div>
-                    <h3 class="animal-name">Coyote</h3>
+                    <h3 class="animal-name">Lynx</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
+                        <p>Though smaller in stature, lynx tracks are the same size as a cougar, but are not as defined due to the fur around their paws.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
-                    <h3>Coyote</h3>
-                    <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
+                    <h3>Lynx</h3>
+                    <p>Though smaller in stature, lynx tracks are the same size as a cougar, but are not as defined due to the fur around their paws.</p>
                 </div>
             </div>
         </div>
@@ -164,22 +161,22 @@
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/fox_image.jpg') }}" alt="Fox" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/bobcat_image.png') }}" alt="Bobcat" class="animal-image">
                     <div class="track-images-container">
-                        <img src="{{ url_for('static', filename='images/fox_track_front.png') }}" alt="Fox Front Track" class="animal-print">
-                        <img src="{{ url_for('static', filename='images/fox_track_back.png') }}" alt="Fox Back Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/bobcat_track_front.png') }}" alt="Bobcat Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/bobcat_track_back.png') }}" alt="Bobcat Back Track" class="animal-print">
                     </div>
-                    <h3 class="animal-name">Fox</h3>
+                    <h3 class="animal-name">Bobcat</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
+                        <p>Bobcats have smaller tracks (2") that are often confused with coyotes or foxes. Look for a lack of nails and a round-shaped print to identify the bobcat track from its canine counterparts.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
-                    <h3>Fox</h3>
-                    <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
+                    <h3>Bobcat</h3>
+                    <p>Bobcats have smaller tracks (2") that are often confused with coyotes or foxes. Look for a lack of nails and a round-shaped print.</p>
                 </div>
             </div>
         </div>
@@ -187,33 +184,33 @@
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/dog_image.jpg') }}" alt="Dog" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/housecat_image.png') }}" alt="House Cat" class="animal-image">
                     <div class="track-images-container">
-                        <img src="{{ url_for('static', filename='images/dog_track_front.png') }}" alt="Dog Front Track" class="animal-print">
-                        <img src="{{ url_for('static', filename='images/dog_track_back.png') }}" alt="Dog Back Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/housecat_track_front.png') }}" alt="House Cat Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/housecat_track_back.png') }}" alt="House Cat Back Track" class="animal-print">
                     </div>
-                    <h3 class="animal-name">Dog</h3>
+                    <h3 class="animal-name">House Cat</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Domestic dogs walk in zig-zag patterns rather than straight lines. Their toes often splay outward with blunter nail prints than wild canines.</p>
+                        <p>The prints of a house cat are small (1 to 1.5"). Similar to the domestic dog, the house cat also tends to meander when walking and does not try to conserve energy.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
-                    <h3>Dog</h3>
-                    <p>Domestic dogs walk in zig-zag patterns rather than straight lines. Their toes often splay outward with blunter nail prints than wild canines.</p>
+                    <h3>HouseCat</h3>
+                    <p>The prints of a house cat are small (1 to 1.5"). Similar to the domestic dog, the house cat also tends to meander when walking and does not try to conserve energy.</p>
                 </div>
             </div>
         </div>
     </div>
     
     <div class="navigation-buttons">
-        <a href="{{ url_for('learn') }}" class="nav-button back">
-            <i class="fas fa-arrow-left"></i> Back to Learn
+        <a href="{{ url_for('learn_canines') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Canines
         </a>
-        <a href="{{ url_for('learn_felines') }}" class="nav-button next">
-            Next: Felines <i class="fas fa-arrow-right"></i>
+        <a href="{{ url_for('learn_bears') }}" class="nav-button next">
+            Next: Bears <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 </div>

@@ -106,15 +106,15 @@ dialogue_data = {
     },
     "8": {
         "dialogue_id": "8",
-        "text": "Good news! I happened to meet a hiker passing through the area around the estimated time of Amy’s murder."
+        "text": "Good news! I happened to meet a hiker passing through the area around the estimated time of Amy's murder."
     },
     "9": {
         "dialogue_id": "9",
-        "text": "I’ve managed to gather some more clues for you. See if you can use them to identify the culprit!"
+        "text": "I've managed to gather some more clues for you. See if you can use them to identify the culprit!"
     },
     "10": {
         "dialogue_id": "10",
-        "text": "Try to use as few clues as possible! More importantly, don’t frame the wrong suspect. Your job and reputation are on the line."
+        "text": "Try to use as few clues as possible! More importantly, don't frame the wrong suspect. Your job and reputation are on the line."
     }
 }
 
@@ -274,41 +274,41 @@ track_characteristics = {
     }
 }
 
-
+#track patterns images and gifs
 patterns = [
-        {
-            "name": "Zig-Zaggers",
-            "track_img": "images/track_patterns/zig-zaggers.png",
-            "animal_imgs": [
-                "images/track_patterns/dear.gif",
-                "images/track_patterns/wolf.gif"
-            ]
-        },
-        {
-            "name": "Leapers/Hoppers",
-            "track_img": "images/track_patterns/leapers-hoppers.png",
-            "animal_imgs": [
-                "images/track_patterns/bunny.gif",
-                "images/track_patterns/bunny.gif"
-            ]
-        },
-        {
-            "name": "Bounders",
-            "track_img": "images/track_patterns/bounders.png",
-            "animal_imgs": [
-                "images/track_patterns/otter.gif",
-                "images/track_patterns/otter.gif"
-            ]
-        },
-        {
-            "name": "Waddlers",
-            "track_img": "images/track_patterns/waddlers.png",
-            "animal_imgs": [
-                "images/track_patterns/bear.gif",
-                "images/track_patterns/bear.gif"
-            ]
-        },
+{
+    "name": "Zig-Zaggers",
+    "track_img": "images/track_patterns/zig-zaggers.png",
+    "animal_imgs": [
+        "images/track_patterns/dear.gif",
+        "images/track_patterns/wolf.gif"
     ]
+},
+{
+    "name": "Leapers/Hoppers",
+    "track_img": "images/track_patterns/leapers-hoppers.png",
+    "animal_imgs": [
+        "images/track_patterns/bunny.gif",
+        "images/track_patterns/bunny.gif"
+    ]
+},
+{
+    "name": "Bounders",
+    "track_img": "images/track_patterns/bounders.png",
+    "animal_imgs": [
+        "images/track_patterns/otter.gif",
+        "images/track_patterns/otter.gif"
+    ]
+},
+{
+    "name": "Waddlers",
+    "track_img": "images/track_patterns/waddlers.png",
+    "animal_imgs": [
+        "images/track_patterns/bear.gif",
+        "images/track_patterns/bear.gif"
+    ]
+},
+]
 
 #user activity logs
 activity_logger = logging.getLogger("learn_logger")
@@ -347,32 +347,55 @@ def learn_canines():
     record_page_visit()
     return render_template('learn/learn_canines.html')   
 
+@app.route('/learn/track-patterns')
+def track_patterns():
+    record_page_visit()
+    return render_template('learn/track_patterns.html', patterns=patterns)
+
 @app.route('/learn/track-characteristics')
-def track_characteristics_page():
+def track_characteristics():
     record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
 
-@app.route('/learn/track-patterns')
-def track_patterns():
-    return render_template('learn/track_patterns.html', patterns=patterns)
+@app.route('/learn/birds')
+def learn_birds():
+    return render_template('learn_birds.html')
 
+@app.route('/learn/small-mammals')
+def learn_small_mammals():
+    return render_template('learn_small_mammals.html')
 
-@app.route('/quiz/<id>')
-def view(id=None):
-    if id == '1' or id == '2' or id == '3' or id == '8' or id == '9' or id == '10':
-        return render_template('quiz_dialogue.html', dialogue=dialogue_data[id]['text'], id=int(id))
-    if id == '4':
-        return render_template('quiz_tasks_suspects.html', tasks=tasks_data, suspects=suspects_data, id=int(id))
-    if id == '6':
-        return render_template('quiz_sort_prints.html', suspects=suspects_data, id=int(id))
-    if id == '7':
-        return render_template('quiz_match_prints.html', suspects=suspects_data, id=int(id))
-    if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
-        return render_template('quiz_clue.html', clues=clues_data, id=int(id))
-    if id == '16':
-        return render_template('quiz_identify_culprit.html', suspects=suspects_data, id=int(id))
-    else:
-        return render_template('quiz.html')
+@app.route('/learn/reptiles-amphibians')
+def learn_reptiles_amphibians():
+    return render_template('learn_reptiles_amphibians.html')
+
+@app.route('/learn/deer')
+def learn_deer():
+    return render_template('learn_deer.html')
+
+@app.route('/learn/felines')
+def learn_felines():
+    return render_template('learn_felines.html')
+
+@app.route('/learn/bears')
+def learn_bears():
+    return render_template('learn_bears.html')
+
+@app.route('/learn/hoofs-large')
+def learn_hoofs_large():
+    return render_template('learn_hoofs_large.html')
+
+@app.route('/learn/hoofs-small')
+def learn_hoofs_small():
+    return render_template('learn_hoofs_small.html')
+
+@app.route('/learn/rodents')
+def learn_rodents():
+    return render_template('learn_rodents.html')
+
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
 
 @app.route('/quiz-result')
 def quiz_result():

@@ -112,9 +112,7 @@
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
-    <!-- Animal Cards Container -->
-    <div class="animal-cards-container-center" id="animalCardsContainer">
-        <!-- Wolf Card -->
+    <div class="animal-cards-container" id="animalCardsContainer">
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -128,12 +126,12 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
+                        <p>The wolf print is much like a domestic dog but larger, measuring between 4 and 5" long. Wolves tend to direct register their prints, leaving a straighter line.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Wolf</h3>
-                    <p>Wolves are among the largest canines, and their paws are the biggest in the group with a long (4") and wide print.</p>
+                    <p>The wolf print is much like a domestic dog but larger, measuring between 4 and 5" long. Wolves tend to direct register their prints, leaving a straighter line.</p>
                 </div>
             </div>
         </div>
@@ -141,7 +139,7 @@
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
-                    <img src="{{ url_for('static', filename='images/Coyote_image.png') }}" alt="Coyote" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/coyote_image.jpg') }}" alt="Coyote" class="animal-image">
                     <div class="track-images-container">
                         <img src="{{ url_for('static', filename='images/coyote_track_front.png') }}" alt="Coyote Front Track" class="animal-print">
                         <img src="{{ url_for('static', filename='images/coyote_track_back.png') }}" alt="Coyote Back Track" class="animal-print">
@@ -151,12 +149,12 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
+                        <p>Coyotes have more oval tracks than wolves, measuring 2.5 to 3.5" in length. Their toes imprint closer together, giving a more compact appearance.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Coyote</h3>
-                    <p>Coyotes are slightly smaller than wolves and have a print that is more narrow (2.5 to 3.5") than the wolf.</p>
+                    <p>Coyotes have more oval tracks than wolves, measuring 2.5 to 3.5" in length. Their toes imprint closer together, giving a more compact appearance.</p>
                 </div>
             </div>
         </div>
@@ -174,12 +172,12 @@
                         <i class="fas fa-info"></i>
                     </div>
                     <div class="tooltip">
-                        <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
+                        <p>Fox prints are diamond-shaped and compact, about 2" long. They have a prominent center that forms an H-shape when connecting the toes and heel pad.</p>
                     </div>
                 </div>
                 <div class="animal-card-back">
                     <h3>Fox</h3>
-                    <p>The fox is the smallest canine with the smallest print (2 to 3"). Prints appear fuzzy due to hair on paws and often show a small pad imprint.</p>
+                    <p>Fox prints are diamond-shaped and compact, about 2" long. They have a prominent center that forms an H-shape when connecting the toes and heel pad.</p>
                 </div>
             </div>
         </div>
@@ -210,7 +208,7 @@
     
     <div class="navigation-buttons">
         <a href="{{ url_for('learn') }}" class="nav-button back">
-            <i class="fas fa-arrow-left"></i> Back to Learn
+            <i class="fas fa-arrow-left"></i> Back to Categories
         </a>
         <a href="{{ url_for('learn_felines') }}" class="nav-button next">
             Next: Felines <i class="fas fa-arrow-right"></i>

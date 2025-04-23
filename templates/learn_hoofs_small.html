@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling to center the cards */
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 2rem;
+        overflow-x: auto;
+        padding-bottom: 10px; /* Add padding to prevent cutoff */
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 280px;
+        min-width: 250px;
+        margin-bottom: 10px; /* Add margin to prevent cutoff */
+    }
+    
+    /* Make animal name font smaller to avoid collision with info icon */
+    .animal-name {
+        font-size: 1.25rem !important; /* Smaller font */
+        bottom: 15px !important; /* Move name up to center with info icon */
+        margin-bottom: 0 !important;
+    }
+    
+    /* Move info icon up to prevent it being cut off */
+    .info-icon {
+        bottom: 15px !important;
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 0 !important; /* Prevent paragraph cutoff */
+    }
+    
+    @media (max-width: 1200px) {
+        #animalCardsContainer {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Hoofs (Small)</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Split hoof with two toes that leave a distinct imprint</li>
+        <li><i class="fas fa-paw"></i> Similar to large hoofed animals but smaller in size</li>
+        <li><i class="fas fa-paw"></i> Often found in rocky, mountainous terrain</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Mountain Goat Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/mountaingoat_image.png') }}" alt="Mountain Goat" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/mountaingoat_track_front.png') }}" alt="Mountain Goat Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/mountaingoat_track_back.png') }}" alt="Mountain Goat Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Mountain Goat</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>To help them climb, mountain goats have toes that spread when they step, creating a distinctive V shape at the top of their print.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Mountain Goat</h3>
+                    <p>To help them climb, mountain goats have toes that spread when they step, creating a distinctive V shape at the top of their print.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bighorn Sheep Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/bighornsheep_image.png') }}" alt="Bighorn Sheep" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/bighornsheep_track_front.png') }}" alt="Bighorn Sheep Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/bighornsheep_track_back.png') }}" alt="Bighorn Sheep Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Bighorn Sheep</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Bighorn sheep have elongated hooves that are more blocky and less heart-shaped than deer, with straighter edges and less pointed tips.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Bighorn Sheep</h3>
+                    <p>Bighorn sheep have elongated hooves that are more blocky and less heart-shaped than deer, with straighter edges and less pointed tips.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wild Hog Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/wildhog_image.png') }}" alt="Wild Hog" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/wildhog_track_front.png') }}" alt="Wild Hog Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/wildhog_track_back.png') }}" alt="Wild Hog Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Wild Hog</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Wild boar tracks can be confused with deer but have wider, rounder, blunter toes that don't come to a point. A dew claw often rests slightly outside the print.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Wild Hog</h3>
+                    <p>Wild boar tracks can be confused with deer but have wider, rounder, blunter toes that don't come to a point. A dew claw often rests slightly outside the print.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_hoofs_large') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Hoofs (Large)
+        </a>
+        <a href="{{ url_for('learn_rodents') }}" class="nav-button next">
+            Next: Rodents <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 
