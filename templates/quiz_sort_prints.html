@@ -2,7 +2,35 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_sort_prints.js') }}"></script>
+
 <h1>Quiz: Sort Prints</h1>
 
+<div>Drag and drop prints into their corresponding families.</div>
+
+<div class="track-row container">
+    <div class="row">
+    {% for i in range(1, 7) %}
+        <div class="col-md-2">
+            <div id="i" class="suspect-track">
+                <img src="{{ suspects[i|string]['track_image'] }}" alt="" class="img-fluid">
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="family-container">
+        {% for i in range(1, 10) %}
+        <div id="{{i}}" class="family-box">
+            {{ tracks[i|string]['name'] }}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<button type="button" class="btn btn-primary check-btn sort-btn">Check</button>
 <a href="/" class="btn btn-dark home-btn">Back to Home</a>
+<a href="/quiz/{{ id + 1 }}" class="btn btn-dark next-btn d-none">Next</a>
 {% endblock %}

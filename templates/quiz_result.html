@@ -1,7 +1,25 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Quiz Result</h2>
-<p>You answered {{ total_correct }} of {{ total_questions }} correctly.</p>
-<a href="{{ url_for('home') }}" class="btn btn-primary">Home</a>
+<h1>Quiz: End</h1>
+
+<div class="result-wrapper">
+    <div class="result-container">
+        <div>Congrats! You have successfully solved the case. The culprit was:</div>
+        <img src="{{ suspects['1']['suspect_image'] }}" alt="">
+        <div>{{ suspects['1']['name'] }}</div>
+    </div>
+    <div class="score-container">
+        <div>Your score:</div>
+        <div>{{ score }}</div>
+        <hr>
+        <div><b>Scoring breakdown:</b></div>
+        <div><b>3:</b>Perfect score. You’re a natural!</div>
+        <div><b>4-5:</b>You know your stuff!</div>
+        <div><b>6-7:</b>You’re getting there.</div>
+        <div><b>8+:</b>Your tracking skills might need some work...</div>
+    </div>
+</div>
+
+<a href="/" class="btn btn-dark home-btn">Back to Home</a>
 {% endblock %}

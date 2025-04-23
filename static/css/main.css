@@ -409,20 +409,20 @@ body {
     font-size: 2.5rem;
   }
 }
-}
 
-.animal-cards-container {
 .animal-cards-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-  
-  .navigation-buttons {
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #dcdcdc;
+    border-radius: 6px;
 }
-
+  
+.navigation-buttons {
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
 
 /* learn.html */
 .learn-link {
@@ -728,6 +728,57 @@ body {
   box-sizing: border-box;
 }
 
+/* QUIZ: SORT PRINTS */
+.family-container {
+  display: flex;  
+}
+
+.family-box {
+  padding: 20px;
+  background-color: #999
+}
+
+.family-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.family-box {
+  flex: 1 1 calc(20% - 16px);
+  max-width: calc(20% - 16px);
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* QUIZ: MATCH PRINTS */
+.empty-square {
+  height: 100px;
+  width: 100px;
+  border: 1px solid var(--secondary-color);
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+/* QUIZ: IDENTIFY CULPRIT */
+.feedback {
+  color: red;
+}
+
+/* QUIZ RESULT */
+.result-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 /* NAV BUTTONS */
 .home-btn {
   position: fixed;
@@ -741,4 +792,16 @@ body {
   bottom: 20px;
   right: 20px;
   padding: 10px 20px;
+}
+
+.check-btn {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  padding: 10px 20px;
+}
+
+.img-fluid {
+  width: auto;
+  height: 100px;
 }

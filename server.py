@@ -32,14 +32,14 @@ char_data = {
 track_data = {
     "1": {
         "group_id": "1",
-        "name": "canines",
+        "name": "Canines",
         "cover_image": "<insert GitHub link>",
         "description": "<insert text>",
         "animals": {
             "1": {
                 "animal_id": "1",
-                "name": "wolf",
-                "group": "canines",
+                "name": "Wolf",
+                "group": "Canines",
                 "print_image": "<insert GitHub link>",
                 "animal_image": "<insert GitHub link>",
                 "alt_text": "<insert text>",
@@ -47,8 +47,8 @@ track_data = {
             },
             "2": {
                 "animal_id": "2",
-                "name": "coyote",
-                "group": "canines",
+                "name": "Coyote",
+                "group": "Canines",
                 "print_image": "<insert GitHub link>",
                 "animal_image": "<insert GitHub link>",
                 "alt_text": "<insert text>",
@@ -64,8 +64,8 @@ track_data = {
         "animals": {
             "1": {
                 "animal_id": "1",
-                "name": "cougar",
-                "group": "felines",
+                "name": "Cougar",
+                "group": "Felines",
                 "print_image": "<insert GitHub link>",
                 "animal_image": "<insert GitHub link>",
                 "alt_text": "<insert text>",
@@ -73,13 +73,76 @@ track_data = {
             },
             "2": {
                 "animal_id": "2",
-                "name": "lynx",
-                "group": "felines",
+                "name": "Lynx",
+                "group": "Felines",
                 "print_image": "<insert GitHub link>",
                 "animal_image": "<insert GitHub link>",
                 "alt_text": "<insert text>",
                 "info": "<insert text>"
             },
+        },
+    },
+    "3": {
+        "group_id": "3",
+        "name": "Bears",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+
+        },
+    },
+    "4": {
+        "group_id": "4",
+        "name": "Hoofs (Large)",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
+        },
+    },
+    "5": {
+        "group_id": "5",
+        "name": "Hoofs (Small)",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
+        },
+    },
+    "6": {
+        "group_id": "6",
+        "name": "Rodents",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
+        },
+    },
+    "7": {
+        "group_id": "7",
+        "name": "Small Mammals",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
+        },
+    },
+    "8": {
+        "group_id": "8",
+        "name": "Reptiles/Amphibians",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
+        },
+    },
+    "9": {
+        "group_id": "9",
+        "name": "Birds",
+        "cover_image": "<insert GitHub link",
+        "description": "<insert text>",
+        "animals": {
+            
         },
     },
 }
@@ -141,42 +204,42 @@ suspects_data = {
         "suspect_id": "1",
         "name": "Brianna the Bear",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/bear_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/grizzy_bear_track_front.png?raw=true",
         "family": "bears"
     },
     "2": {
         "suspect_id": "2",
         "name": "Rebecca the Raccoon",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_track_front.png?raw=true",
         "family": "small mammals"
     },
     "3": {
         "suspect_id": "3",
         "name": "Emily the Elk",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_track_front.png?raw=true",
         "family": "hoofs (large)"
     },
     "4": {
         "suspect_id": "4",
         "name": "Claire the Coyote",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_track_front.png?raw=true",
         "family": "canines"
     },
     "5": {
         "suspect_id": "5",
         "name": "Ann the Armadillo",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_track_front.png?raw=true",
         "family": "small mammals"
     },
     "6": {
         "suspect_id": "6",
         "name": "Shar the Squirrel",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_track_front.png?raw=true",
         "family": "rodents"
     }
 }
@@ -297,9 +360,9 @@ def view(id=None):
     if id == '4':
         return render_template('quiz_tasks_suspects.html', tasks=tasks_data, suspects=suspects_data, id=int(id))
     if id == '6':
-        return render_template('quiz_sort_prints.html', suspects=suspects_data, id=int(id))
+        return render_template('quiz_sort_prints.html', suspects=suspects_data, tracks=track_data, id=int(id))
     if id == '7':
-        return render_template('quiz_match_prints.html', suspects=suspects_data, id=int(id))
+        return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id))
     if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
         return render_template('quiz_clue.html', clues=clues_data, id=int(id))
     if id == '16':
@@ -309,7 +372,7 @@ def view(id=None):
 
 @app.route('/quiz-result')
 def quiz_result():
-    return render_template('quiz_result.html')
+    return render_template('quiz_result.html', suspects=suspects_data, score=quiz_score)
 
 
 
