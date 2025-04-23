@@ -1,0 +1,227 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling to make all 5 cards fit on one line */
+    #animalCardsContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 1rem;
+        overflow-x: auto;
+        padding-bottom: 10px; /* Add padding to prevent cutoff */
+    }
+    
+    #animalCardsContainer .animal-card {
+        flex: 0 0 auto;
+        width: 220px;
+        min-width: 180px;
+        margin-bottom: 10px; /* Add margin to prevent cutoff */
+    }
+    
+    /* Fix for card bottoms being cut off */
+    .animal-name {
+        bottom: 10px !important; /* Move name up from bottom */
+        margin-bottom: 0 !important;
+    }
+    
+    /* Move info icon up to prevent it being cut off */
+    .info-icon {
+        bottom: 10px !important;
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important; /* Prevent paragraph cutoff */
+    }
+    
+    /* Fix navigation buttons layout */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    @media (max-width: 1200px) {
+        #animalCardsContainer {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Hoofs (Large)</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Split hoof with two toes that leave a distinct imprint</li>
+        <li><i class="fas fa-paw"></i> Some have toes that curve forming a heart-shaped print</li>
+        <li><i class="fas fa-paw"></i> Others have toes that are rounded and leave a round or even square-shaped print</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Moose Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/moose_image.png') }}" alt="Moose" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/moose_track_front.png') }}" alt="Moose Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/moose_track_back.png') }}" alt="Moose Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Moose</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Moose have two toes that curve into a heart shape. Large tracks (5-7"), with dew claws sometimes visible in snow.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Moose</h3>
+                    <p>Moose have two toes that curve into a heart shape. Large tracks (5-7"), with dew claws sometimes visible in snow.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Deer Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/deer_image.png') }}" alt="Deer" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/deer_track_front.png') }}" alt="Deer Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/deer_track_back.png') }}" alt="Deer Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Deer</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Deer, like moose, have two toes that curve sharply together forming almost a heart shape print. The prints are smaller in size than a moose measuring 2-3.5".</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Deer</h3>
+                    <p>Deer, like moose, have two toes that curve sharply together forming almost a heart shape print. The prints are smaller in size than a moose measuring 2-3.5".</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Elk Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/elk_image.png') }}" alt="Elk" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/elk_track_front.png') }}" alt="Elk Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/elk_track_back.png') }}" alt="Elk Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Elk</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Elk have rounder toes, not as sharply tapered as deer or moose. Tracks measure 3-5", between deer and moose sizes.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Elk</h3>
+                    <p>Elk have rounder toes, not as sharply tapered as deer or moose. Tracks measure 3-5", between deer and moose sizes.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bison Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/bison_image.png') }}" alt="Bison" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/bison_track_front.png') }}" alt="Bison Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/bison_track_back.png') }}" alt="Bison Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Bison</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Bison have rounder toes, not tapered like deer. Their print is wide and round rather than heart-shaped, measuring 4.5-6".</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Bison</h3>
+                    <p>Bison have rounder toes, not tapered like deer. Their print is wide and round rather than heart-shaped, measuring 4.5-6".</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cow Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/cow_image.png') }}" alt="Cow" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/cow_track_front.png') }}" alt="Cow Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/cow_track_back.png') }}" alt="Cow Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Cow</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Cow prints are often confused with bison since they share the same round shape and relative size. The easiest way to tell them apart is to know your surroundings.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Cow</h3>
+                    <p>Cow prints are often confused with bison since they share the same round shape and relative size. The easiest way to tell them apart is to know your surroundings.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_bears') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Bears
+        </a>
+        <a href="{{ url_for('learn_hoofs_small') }}" class="nav-button next">
+            Next: Hoofs (Small) <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            // Reset any flipped cards when toggling modes
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        // In flashcard mode, clicking a card will flip it
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

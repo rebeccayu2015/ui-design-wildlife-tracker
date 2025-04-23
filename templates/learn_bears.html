@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Custom styling to center the bear cards */
+    #animalCardsContainer {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    
+    #animalCardsContainer .animal-card {
+        width: 280px;
+        max-width: 45%;
+    }
+    
+    @media (max-width: 768px) {
+        #animalCardsContainer {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        #animalCardsContainer .animal-card {
+            width: 100%;
+            max-width: 280px;
+        }
+    }
+    
+    /* Remove bullet points from card back paragraphs */
+    .animal-card-back p:before {
+        content: none !important;
+    }
+    
+    .animal-card-back p {
+        padding-left: 0 !important;
+        text-align: center;
+        margin-bottom: 0 !important;
+    }
+    
+    /* Enhanced navigation buttons layout */
+    .navigation-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        clear: both !important;
+    }
+
+    .navigation-buttons .nav-button {
+        position: relative !important;
+        flex: 0 0 auto !important;
+        display: inline-block !important;
+    }
+
+    .navigation-buttons .back {
+        margin-right: auto !important;
+    }
+
+    .navigation-buttons .next {
+        margin-left: auto !important;
+    }
+
+    @media (max-width: 768px) {
+        /* Ensure buttons stay on the same line even on mobile */
+        .navigation-buttons {
+            flex-wrap: nowrap !important;
+        }
+    }
+</style>
+
+<div class="learn-container">
+    <h1 class="animal-group-title">Bears</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Huge paws</li>
+        <li><i class="fas fa-paw"></i> Five rounded toes and a wide heel pad</li>
+        <li><i class="fas fa-paw"></i> Visible claw marks</li>
+    </ul>
+    
+    <!-- Flashcard Mode  -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Black Bear Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/black_bear_image.jpg') }}" alt="Black Bear" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/blackbear_track_front.png') }}" alt="Black Bear Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/blackbear_track_back.png') }}" alt="Black Bear Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Black Bear</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>A black bear has short claws and its toes spread out in a curve over its foot pad. Generally going to be smaller than Grizzly Bear's paw.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Black Bear</h3>
+                    <p>A black bear has short claws and its toes spread out in a curve over its foot pad. Generally going to be smaller than Grizzly Bear's paw.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Brown Bear Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/brown_bear_image.png') }}" alt="Grizzly Bear" class="animal-image">
+                    <div class="track-images-container">
+                        <img src="{{ url_for('static', filename='images/brownbear_track_front.png') }}" alt="Grizzly Bear Front Track" class="animal-print">
+                        <img src="{{ url_for('static', filename='images/brownbear_track_back.png') }}" alt="Grizzly Bear Back Track" class="animal-print">
+                    </div>
+                    <h3 class="animal-name">Grizzly Bear</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>A grizzly has long claws that extend out further from its toes. Its toes also are held closer together, forming almost a straight line above the foot pad.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Grizzly Bear</h3>
+                    <p>A grizzly has long claws that extend out further from its toes. Its toes also are held closer together, forming almost a straight line above the foot pad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="{{ url_for('learn_felines') }}" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Previous: Felines
+        </a>
+        <a href="{{ url_for('learn_hoofs_large') }}" class="nav-button next">
+            Next: Hoofs (Large) <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            // Reset any flipped cards when toggling modes
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        // In flashcard mode, clicking a card will flip it
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

@@ -6,60 +6,67 @@
 <div class="learn-home-container">
 <h3 class="learn-h3">Click on a folder to learn more.</h3>
 <div class="learn-grid-wide grid-wide">
-  <div class="learn-folder" onclick="location.href='track_patterns.html'">
+  <div class="learn-folder" onclick="location.href='{{ url_for('track_patterns_page') }}';">
     <strong>Track Patterns</strong><br/><em>How an animal moves</em>
   </div>
-  <div class="learn-folder" onclick="location.href='/learn/track-characteristics'">
+  <div class="learn-folder" onclick="location.href='{{ url_for('track_characteristics_page') }}';">
     <strong>Track Characteristics</strong><br/><em>Anatomy of a print</em>
   </div>
 </div>
 
 <div class="learn-grid">
-  <div class="learn-animal" onclick="location.href = '/learn/canines'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_canines') }}';">
     <div>Canines</div>
     <img src="{{ url_for('static', filename='images/canine_paw.png') }}" alt="Canine print" />
   </div>
-  <div class="learn-animal" onclick="location.href='felines.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_felines') }}';">
     <div>Felines</div>
     <img src="{{ url_for('static', filename='images/feline_paw.png') }}" alt="Feline print" />
   </div>
-  <div class="learn-animal" onclick="location.href='bears.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_bears') }}';">
     <div>Bears</div>
     <img src="{{ url_for('static', filename='images/bear_paw.png') }}" alt="Bear print" />
   </div>
-  <div class="learn-animal" onclick="location.href='hoof-large.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_hoofs_large') }}';">
     <div>Hoofs (Large)</div>
     <img src="{{ url_for('static', filename='images/hoof_large.png') }}" alt="Small hoof print" />
   </div>
 
-  <div class="learn-animal" onclick="location.href='hoof-small.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_hoofs_small') }}';">
     <div>Hoofs (Small)</div>
     <img src="{{ url_for('static', filename='images/hoof_small.png') }}" alt="Small hoof print" />
   </div>
-  <div class="learn-animal" onclick="location.href='rodents.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_rodents') }}';">
     <div>Rodents</div>
     <img src="{{ url_for('static', filename='images/rodent_paw.png') }}" alt="Rodent print" />
   </div>
-  <div class="learn-animal" onclick="location.href='small-mammals.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_small_mammals') }}';">
     <div>Small Mammals</div>
     <img src="{{ url_for('static', filename='images/small_mammal_paw.png') }}" alt="Small mammal print" />
   </div>
-  <div class="learn-animal" onclick="location.href='reptiles.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_reptiles_amphibians') }}';">
     <div>Reptiles/Amphibians</div>
     <img src="{{ url_for('static', filename='images/reptile_amphibian_paw.png') }}" alt="Reptile print" />
   </div>
-  <div class="learn-animal" onclick="location.href='birds.html'">
+  <div class="learn-animal" onclick="location.href='{{ url_for('learn_birds') }}';">
     <div>Birds</div>
     <img src="{{ url_for('static', filename='images/bird_paw.png') }}" alt="Bird print" />
   </div>
 </div>
 
-<div class="navigation-buttons-row">
-  <a href="/" class="nav-button back">
+<!-- <div class="learn-bottom-nav">
+  <a class="nav-button back" href="/">
+    <i class="fas fa-arrow-left"> Back to Home
+  </a>
+  <span>Learning: learning map</span>
+  <a class="nav-button next" href="/quiz">Quiz →</a>
+</div> -->
+<div class="navigation-buttons">
+  <a href="{{ url_for('home') }}" class="nav-button back">
       <i class="fas fa-arrow-left"></i> Back to Home
   </a>
-  <a href="/quiz/1" class="nav-button next">
-    Quiz<i class="fas fa-arrow-right"></i>
+  <a href="{{ url_for('quiz') }}" class="nav-button next">
+    Quiz <i class="fas fa-arrow-right"></i>
   </a>
 </div>
 </div>
