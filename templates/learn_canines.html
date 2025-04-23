@@ -1,0 +1,153 @@
+<!-- CANINES LEARN PAGE -->
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="learn-container">
+    <!-- Group Title and Description -->
+    <h1 class="animal-group-title">Canines</h1>
+    
+    <!-- Characteristics List -->
+    <ul class="characteristics-list">
+        <li><i class="fas fa-paw"></i> Oval shape with four toes and a heel pad that is concave at the bottom</li>
+        <li><i class="fas fa-paw"></i> Four toes that point forward with two front toes lined up</li>
+        <li><i class="fas fa-paw"></i> Claws visible and point forward</li>
+        <li><i class="fas fa-paw"></i> Fore prints significantly larger than hind print</li>
+        <li><i class="fas fa-paw"></i> Can draw an "X" through the print</li>
+    </ul>
+    
+    <!-- Flashcard Mode Toggle -->
+    <div class="flashcard-mode-btn" id="flashcardToggle">
+        <i class="fas fa-sync-alt"></i> Flashcard Mode
+    </div>
+    
+    <!-- Animal Cards Container -->
+    <div class="animal-cards-container" id="animalCardsContainer">
+        <!-- Wolf Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/wolf_image.jpg') }}" alt="Wolf" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/wolf_track.png') }}" alt="Wolf Track" class="animal-print">
+                    <h3 class="animal-name">Wolf</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Largest print (4 to 5"). Deep impression. Clear claw marks.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Wolf</h3>
+                    <p>Largest print (4 to 5")</p>
+                    <p>Deep impression</p>
+                    <p>Clear claw marks</p>
+                    <p>X-shaped negative space</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Coyote Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/Coyote_image.jpg') }}" alt="Coyote" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/coyote_track.png') }}" alt="Coyote Track" class="animal-print">
+                    <h3 class="animal-name">Coyote</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Medium print (2.5 to 3.5"). Narrower than wolf.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Coyote</h3>
+                    <p>Medium print (2.5 to 3.5")</p>
+                    <p>Narrower than wolf</p>
+                    <p>Often shows nail marks</p>
+                    <p>Less defined heel pad</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fox Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/fox_image.jpg') }}" alt="Fox" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/fox_track.png') }}" alt="Fox Track" class="animal-print">
+                    <h3 class="animal-name">Fox</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Smallest print (2 to 3"). Fuzzy due to hair on paws.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Fox</h3>
+                    <p>Smallest print (2 to 3")</p>
+                    <p>Fuzzy due to hair on paws</p>
+                    <p>Small pad imprint</p>
+                    <p>Sometimes shows tail drag</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dog Card -->
+        <div class="animal-card">
+            <div class="animal-card-inner">
+                <div class="animal-card-front">
+                    <img src="{{ url_for('static', filename='images/dog_image.jpg') }}" alt="Dog" class="animal-image">
+                    <img src="{{ url_for('static', filename='images/dog_track.png') }}" alt="Dog Track" class="animal-print">
+                    <h3 class="animal-name">Dog</h3>
+                    <div class="info-icon">
+                        <i class="fas fa-info"></i>
+                    </div>
+                    <div class="tooltip">
+                        <p>Variable size. Rounder than wild canines.</p>
+                    </div>
+                </div>
+                <div class="animal-card-back">
+                    <h3>Dog</h3>
+                    <p>Variable size based on breed</p>
+                    <p>Rounder than wild canines</p>
+                    <p>Less symmetrical</p>
+                    <p>Random walking pattern</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="/" class="nav-button back">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <a href="#" class="nav-button next">
+            Next Group <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+<!-- JavaScript for Flashcard Mode -->
+<script>
+    $(document).ready(function() {
+        // Toggle flashcard mode
+        $('#flashcardToggle').click(function() {
+            $('#animalCardsContainer').toggleClass('flashcard-mode');
+            $(this).toggleClass('active');
+            
+            // Reset any flipped cards when toggling modes
+            $('.animal-card-inner').removeClass('flipped');
+        });
+        
+        // In flashcard mode, clicking a card will flip it
+        $('.animal-card').click(function() {
+            if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
+                $(this).find('.animal-card-inner').toggleClass('flipped');
+            }
+        });
+    });
+</script>
+{% endblock %} 

@@ -88,7 +88,7 @@ track_data = {
 dialogue_data = {
     "1": {
         "dialogue_id": "1",
-        "text": "Oh no!! It’s all over the news. Your neighbor Amy was found dead in the woods.",
+        "text": "Oh no!! It's all over the news. Your neighbor Amy was found dead in the woods.",
     },
     "2": {
         "dialogue_id": "2",
@@ -212,6 +212,10 @@ def home():
 @app.route('/learn')
 def learn():
     return render_template('learn.html')   
+
+@app.route('/learn/canines')
+def learn_canines():
+    return render_template('learn_canines.html')   
 
 @app.route('/quiz')
 def quiz():
