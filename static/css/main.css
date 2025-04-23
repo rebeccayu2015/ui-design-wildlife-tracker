@@ -19,6 +19,7 @@ body {
   margin: 0;
   padding: 0;
   font-size: 24px;
+  font-size: 24px;
 }
 
 .navbar {
@@ -408,7 +409,9 @@ body {
     font-size: 2.5rem;
   }
 }
+}
 
+.animal-cards-container {
 .animal-cards-container {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
