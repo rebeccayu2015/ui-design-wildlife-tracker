@@ -1,6 +1,9 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
+import os
+import logging
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -227,6 +230,7 @@ match_prints_responses = {
     "Shar the Squirrel": ""
 }
 
+# dictionary for tracking characteristics paws and descriptions
 track_characteristics = {
     "width": {
         "title": "Width",
@@ -271,23 +275,46 @@ track_characteristics = {
 }
 
 
+#user activity logs
+activity_logger = logging.getLogger("learn_logger")
+activity_logger.setLevel(logging.INFO)
+
+if not os.path.exists("logs"):
+    os.makedirs("logs")
+
+file_handler = logging.FileHandler("logs/user_activity.log")
+file_handler.setFormatter(logging.Formatter("%(asctime)s %(message)s"))
+
+activity_logger.addHandler(file_handler)
+
+def record_page_visit():
+    user_ip = request.remote_addr
+    path = request.path
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    activity_logger.info(f"[PAGE VISIT] User {user_ip} visited {path} at {timestamp}")
+
+
 # ==================================================================================================================
 # ROUTES
 # ==================================================================================================================
 @app.route('/')
 def home():
+    record_page_visit()
     return render_template('home.html')   
 
 @app.route('/learn')
 def learn():
+    record_page_visit()
     return render_template('learn/learn.html')   
 
 @app.route('/learn/canines')
 def learn_canines():
+    record_page_visit()
     return render_template('learn/learn_canines.html')   
 
 @app.route('/learn/track-characteristics')
 def track_characteristics_page():
+    record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
 
 @app.route('/quiz/<id>')
