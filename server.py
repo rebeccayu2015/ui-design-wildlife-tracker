@@ -97,6 +97,18 @@ dialogue_data = {
     "3": {    
         "dialogue_id": "3", 
         "text": "As the only detective on this case, your job is to investigate these tracks and identify the culprit. Good luck!",
+    },
+    "8": {
+        "dialogue_id": "8",
+        "text": "Good news! I happened to meet a hiker passing through the area around the estimated time of Amy’s murder."
+    },
+    "9": {
+        "dialogue_id": "9",
+        "text": "I’ve managed to gather some more clues for you. See if you can use them to identify the culprit!"
+    },
+    "10": {
+        "dialogue_id": "10",
+        "text": "Try to use as few clues as possible! More importantly, don’t frame the wrong suspect. Your job and reputation are on the line."
     }
 }
 
