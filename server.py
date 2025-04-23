@@ -140,65 +140,65 @@ suspects_data = {
     "1": {
         "suspect_id": "1",
         "name": "Brianna the Bear",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/bear_single.png",
         "family": "bears"
     },
     "2": {
         "suspect_id": "2",
         "name": "Rebecca the Raccoon",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_single.png",
         "family": "small mammals"
     },
     "3": {
         "suspect_id": "3",
         "name": "Emily the Elk",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_single.png",
         "family": "hoofs (large)"
     },
     "4": {
         "suspect_id": "4",
         "name": "Claire the Coyote",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_single.png",
         "family": "canines"
     },
     "5": {
         "suspect_id": "5",
         "name": "Ann the Armadillo",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_single.png",
         "family": "small mammals"
     },
     "6": {
         "suspect_id": "6",
         "name": "Shar the Squirrel",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png?raw=true",
         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_single.png",
         "family": "rodents"
     }
 }
 # dictionary for clues
 clues_data = {
-    "1": {
+    "11": {
         "clue_id": "1",
         "text": "The prints were of a larger size."
     },
-    "2": {
+    "12": {
         "clue_id": "2",
         "text": "The tracks seemed to be of a waddler pattern."
     },
-    "3": {
+    "13": {
         "clue_id": "3",
         "text": "The print had a wide heel pad."
     },
-    "4": {
+    "14": {
         "clue_id": "4",
         "text": "The print had claws."
     },
-    "5": {
+    "15": {
         "clue_id": "5",
         "text": "The print had five rounded toes."
     }
@@ -243,9 +243,22 @@ def learn():
 def learn_canines():
     return render_template('learn_canines.html')   
 
-@app.route('/quiz')
-def quiz():
-    return render_template('quiz.html')
+@app.route('/quiz/<id>')
+def view(id=None):
+    if id == '1' or id == '2' or id == '3' or id == '8' or id == '9' or id == '10':
+        return render_template('quiz_dialogue.html', dialogue=dialogue_data[id]['text'], id=int(id))
+    if id == '4':
+        return render_template('quiz_tasks_suspects.html', tasks=tasks_data, suspects=suspects_data, id=int(id))
+    if id == '6':
+        return render_template('quiz_sort_prints.html', suspects=suspects_data, id=int(id))
+    if id == '7':
+        return render_template('quiz_match_prints.html', suspects=suspects_data, id=int(id))
+    if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
+        return render_template('quiz_clue.html', clues=clues_data, id=int(id))
+    if id == '16':
+        return render_template('quiz_identify_culprit.html', suspects=suspects_data, id=int(id))
+    else:
+        return render_template('quiz.html')
 
 @app.route('/quiz-result')
 def quiz_result():
