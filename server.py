@@ -178,7 +178,28 @@ suspects_data = {
     }
 }
 # dictionary for clues
-
+clues_data = {
+    "1": {
+        "clue_id": "1",
+        "text": "The prints were of a larger size."
+    },
+    "2": {
+        "clue_id": "2",
+        "text": "The tracks seemed to be of a waddler pattern."
+    },
+    "3": {
+        "clue_id": "3",
+        "text": "The print had a wide heel pad."
+    },
+    "4": {
+        "clue_id": "4",
+        "text": "The print had claws."
+    },
+    "5": {
+        "clue_id": "5",
+        "text": "The print had five rounded toes."
+    }
+}
 
 
 # ==================================================================================================================
@@ -192,12 +213,9 @@ def home():
 def learn():
     return render_template('learn.html')   
 
-@app.route('/quiz/<id>')
-def view(id=None):
-    if id == '1' or id == '2' or id == '3' or id == '8' or id == '9' or id == '10':
-        return render_template('quiz_dialogue.html', dialogue=dialogue_data[])
-    else:
-        return render_template('quiz.html')
+@app.route('/quiz')
+def quiz():
+    return render_template('quiz.html')
 
 @app.route('/quiz-result')
 def quiz_result():
