@@ -84,6 +84,9 @@ track_data = {
     },
 }
 
+# initializing quiz score
+quiz_score = 0
+
 # dictionary for dialogues
 dialogue_data = {
     "1": {
