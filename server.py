@@ -416,7 +416,7 @@ def track_patterns():
     return render_template('learn/track_patterns.html', patterns=patterns)
 
 @app.route('/learn/track-characteristics')
-def track_characteristics():
+def track_characteristics_page():
     record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
 

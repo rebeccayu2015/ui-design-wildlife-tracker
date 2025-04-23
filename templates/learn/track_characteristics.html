@@ -36,41 +36,8 @@
 </div>
 
 <script>
-  const characteristics = {
-    width: {
-      description: "The distance from the left side of the print to the right side of the same print.",
-      image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_width.png') }}"
-    },
-    length: {
-        description: "The distance from the front of the print to the back of the print.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_length.png') }}"
-    },
-    stride: {
-        description: "The measurement from the heel of one print to the heel of the other print on the same side.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_stride.png') }}"
-    },
-    depth: {
-        description: "The distance from the left side of the print to the right side of the same print.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_depth.png') }}"
-    },
-    number_of_toes: {
-        description: "Different animal groups have different number of toes.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_num_toes.png') }}"
-    },
-    straddle: {
-        description: "The width of the track from the outside of the right track to the outside of the left track.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_straddle.png') }}"
-    },
-    nails: {
-        description: "Nails/claws may be retracted or extended depending on animal group and behavior.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_nails.png') }}"
-    },
-    front_rear: {
-        description: "Front and rear paws may have slightly different sizes and shapes, depending on the animal.",
-        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_front_rear.png') }}"
-    },
 
-  };
+  characteristics = {{ characteristics|tojson }};
 
   function resetButtons() {
     document.querySelectorAll('.track-char-button').forEach(btn => {
