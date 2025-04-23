@@ -562,7 +562,6 @@ body {
   border: 1px solid #000;
   background-color: #f2f2f2;
   text-decoration: none;
-<<<<<<< HEAD
   font-weight: bold;
   color: #000;
 }
@@ -616,11 +615,6 @@ body {
     height: auto;
   }
 }
-=======
-  font-size: 16px;
-  padding: 10px 20px;
-  background-color: #dcdcdc;
-  border-radius: 6px;
 
 /* QUIZ */
 .dialogue-wrapper {
@@ -748,4 +742,3 @@ body {
   right: 20px;
   padding: 10px 20px;
 }
->>>>>>> 8b30178d0108a98638da821bb93c95d0e7cea768
