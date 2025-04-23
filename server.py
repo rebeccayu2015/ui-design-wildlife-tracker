@@ -88,7 +88,7 @@ track_data = {
 dialogue_data = {
     "1": {
         "dialogue_id": "1",
-        "text": "Oh no!! It’s all over the news. Your neighbor Amy was found dead in the woods.",
+        "text": "Oh no!! It's all over the news. Your neighbor Amy was found dead in the woods.",
     },
     "2": {
         "dialogue_id": "2",
@@ -138,47 +138,68 @@ suspects_data = {
         "suspect_id": "1",
         "name": "Brianna the Bear",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/bear_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/grizzy_bear_track_front.png",
         "family": "bears"
     },
     "2": {
         "suspect_id": "2",
         "name": "Rebecca the Raccoon",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_track_front.png",
         "family": "small mammals"
     },
     "3": {
         "suspect_id": "3",
         "name": "Emily the Elk",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_track_front.png",
         "family": "hoofs (large)"
     },
     "4": {
         "suspect_id": "4",
         "name": "Claire the Coyote",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_track_back.png",
         "family": "canines"
     },
     "5": {
         "suspect_id": "5",
         "name": "Ann the Armadillo",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_track_front.png",
         "family": "small mammals"
     },
     "6": {
         "suspect_id": "6",
         "name": "Shar the Squirrel",
         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_single.png",
+        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_track_front.png",
         "family": "rodents"
     }
 }
 # dictionary for clues
-
+clues_data = {
+    "1": {
+        "clue_id": "1",
+        "text": "The prints were of a larger size."
+    },
+    "2": {
+        "clue_id": "2",
+        "text": "The tracks seemed to be of a waddler pattern."
+    },
+    "3": {
+        "clue_id": "3",
+        "text": "The print had a wide heel pad."
+    },
+    "4": {
+        "clue_id": "4",
+        "text": "The print had claws."
+    },
+    "5": {
+        "clue_id": "5",
+        "text": "The print had five rounded toes."
+    }
+}
 
 
 # ==================================================================================================================
@@ -191,6 +212,10 @@ def home():
 @app.route('/learn')
 def learn():
     return render_template('learn.html')   
+
+@app.route('/learn/canines')
+def learn_canines():
+    return render_template('learn_canines.html')   
 
 @app.route('/quiz/<id>')
 def view(id=None):
