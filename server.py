@@ -201,6 +201,19 @@ clues_data = {
     }
 }
 
+# dictionary for sort prints user responses
+sort_prints_responses = {
+    "canines": [],
+    "felines": [],
+    "bears": [],
+    "hoofs (large)": [],
+    "hoofs (small)": [],
+    "rodents": [],
+    "small mammals": [],
+    "reptiles/amphibians": [],
+    "birds": []
+}
+
 
 # ==================================================================================================================
 # ROUTES
