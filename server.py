@@ -125,9 +125,9 @@ suspects_data = {
     "1": {
         "suspect_id": "1",
         "name": "Brianna the Bear",
-        "suspect_image": "<insert GitHub link>",
+        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png",
         "track_image": "wolf",
-        "family": "canines"
+        "family": "bears"
     },
     "2": {
         "suspect_id": "2",
