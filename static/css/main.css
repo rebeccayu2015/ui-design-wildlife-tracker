@@ -1,4 +1,3 @@
-/* MAIN CSS */
 :root {
   --primary-color: #4a5568;
   --secondary-color: #718096;
@@ -375,7 +374,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* Navigation buttons */
 .navigation-buttons {
   display: flex !important;
   flex-direction: row !important;
@@ -444,7 +442,6 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
   
-  /* Ensure buttons stay on the same line even on mobile */
   .navigation-buttons {
     flex-wrap: nowrap !important;
     flex-direction: row !important;
@@ -455,7 +452,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
-/* learn.html */
 .learn-link {
   text-decoration: none;
   color: black;
@@ -520,8 +516,6 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-/* track_characteristics.html */
 
 .track-char-heading {
   font-size: 1.8rem;
@@ -610,7 +604,6 @@ body {
   color: #333;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .track-char-body {
     flex-direction: column;
@@ -633,7 +626,6 @@ body {
   background-color: #dcdcdc;
   border-radius: 6px;
 
-/* QUIZ */
 .dialogue-wrapper {
   display: flex;
   justify-content: center;
@@ -677,7 +669,6 @@ body {
   text-align: right;
 }
 
-/* QUIZ: TASKS/SUSPECTS */
 .tabs {
   display: flex;
   width: fit-content;
@@ -726,7 +717,6 @@ body {
   font-size: 20px;
 }
 
-/* QUIZ: CLUES */
 .clue-wrapper {
   display: flex;
   justify-content: center;
@@ -735,7 +725,6 @@ body {
   box-sizing: border-box;
 }
 
-/* NAV BUTTONS */
 .home-btn {
   position: fixed;
   bottom: 20px;

@@ -2,7 +2,6 @@
 
 {% block content %}
 <style>
-    /* Custom styling to center the bear cards */
     #animalCardsContainer {
         display: flex;
         justify-content: center;
@@ -26,7 +25,6 @@
         }
     }
     
-    /* Remove bullet points from card back paragraphs */
     .animal-card-back p:before {
         content: none !important;
     }
@@ -37,7 +35,6 @@
         margin-bottom: 0 !important;
     }
     
-    /* Enhanced navigation buttons layout */
     .navigation-buttons {
         display: flex !important;
         flex-direction: row !important;
@@ -63,7 +60,6 @@
     }
 
     @media (max-width: 768px) {
-        /* Ensure buttons stay on the same line even on mobile */
         .navigation-buttons {
             flex-wrap: nowrap !important;
         }
@@ -73,21 +69,17 @@
 <div class="learn-container">
     <h1 class="animal-group-title">Bears</h1>
     
-    <!-- Characteristics List -->
     <ul class="characteristics-list">
         <li><i class="fas fa-paw"></i> Huge paws</li>
         <li><i class="fas fa-paw"></i> Five rounded toes and a wide heel pad</li>
         <li><i class="fas fa-paw"></i> Visible claw marks</li>
     </ul>
     
-    <!-- Flashcard Mode  -->
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
-    <!-- Animal Cards Container -->
     <div class="animal-cards-container" id="animalCardsContainer">
-        <!-- Black Bear Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -111,7 +103,6 @@
             </div>
         </div>
         
-        <!-- Brown Bear Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -136,7 +127,6 @@
         </div>
     </div>
     
-    <!-- Navigation Buttons -->
     <div class="navigation-buttons">
         <a href="{{ url_for('learn_felines') }}" class="nav-button back">
             <i class="fas fa-arrow-left"></i> Previous: Felines
@@ -149,16 +139,13 @@
 
 <script>
     $(document).ready(function() {
-        // Toggle flashcard mode
         $('#flashcardToggle').click(function() {
             $('#animalCardsContainer').toggleClass('flashcard-mode');
             $(this).toggleClass('active');
             
-            // Reset any flipped cards when toggling modes
             $('.animal-card-inner').removeClass('flipped');
         });
         
-        // In flashcard mode, clicking a card will flip it
         $('.animal-card').click(function() {
             if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
                 $(this).find('.animal-card-inner').toggleClass('flipped');

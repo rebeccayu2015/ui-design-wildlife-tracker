@@ -2,7 +2,6 @@
 
 {% block content %}
 <style>
-    /* Custom styling for centered cards in a single row */
     #animalCardsContainer {
         display: flex;
         flex-wrap: nowrap;
@@ -21,19 +20,16 @@
         margin-bottom: 20px;
     }
     
-    /* Fix for card bottoms being cut off */
     .animal-name {
         font-size: 1.25rem !important;
         bottom: 10px !important;
         margin-bottom: 0 !important;
     }
     
-    /* Move info icon up to prevent it being cut off */
     .info-icon {
         bottom: 10px !important;
     }
     
-    /* Enhanced navigation buttons layout */
     .navigation-buttons {
         display: flex !important;
         flex-direction: row !important;
@@ -68,7 +64,6 @@
         margin-left: auto !important;
     }
     
-    /* Remove bullet points from card back paragraphs */
     .animal-card-back p:before {
         content: none !important;
     }
@@ -96,7 +91,6 @@
             max-width: 300px;
         }
         
-        /* Ensure buttons stay on the same line even on mobile */
         .navigation-buttons {
             flex-wrap: nowrap !important;
         }
@@ -106,7 +100,6 @@
 <div class="learn-container">
     <h1 class="animal-group-title">Felines</h1>
     
-    <!-- Characteristics List -->
     <ul class="characteristics-list">
         <li><i class="fas fa-paw"></i> Four toes and a heel pad with three lobes at the bottom edges that are shaped like a bubble letter "M"</li>
         <li><i class="fas fa-paw"></i> Prints are as wide as they are long, with no claws visible</li>
@@ -114,14 +107,11 @@
         <li><i class="fas fa-paw"></i> Can draw a "C" between the pad and toes of the print</li>
     </ul>
     
-    <!-- Flashcard Mode  -->
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
-    <!-- Animal Cards Container -->
     <div class="animal-cards-container" id="animalCardsContainer">
-        <!-- Cougar Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -145,7 +135,6 @@
             </div>
         </div>
         
-        <!-- Lynx Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -169,7 +158,6 @@
             </div>
         </div>
         
-        <!-- Bobcat Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -193,7 +181,6 @@
             </div>
         </div>
         
-        <!-- House Cat Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -202,7 +189,7 @@
                         <img src="{{ url_for('static', filename='images/housecat_track_front.png') }}" alt="House Cat Front Track" class="animal-print">
                         <img src="{{ url_for('static', filename='images/housecat_track_back.png') }}" alt="House Cat Back Track" class="animal-print">
                     </div>
-                    <h3 class="animal-name">HouseCat</h3>
+                    <h3 class="animal-name">House Cat</h3>
                     <div class="info-icon">
                         <i class="fas fa-info"></i>
                     </div>
@@ -218,7 +205,6 @@
         </div>
     </div>
     
-    <!-- Navigation Buttons -->
     <div class="navigation-buttons">
         <a href="{{ url_for('learn_canines') }}" class="nav-button back">
             <i class="fas fa-arrow-left"></i> Previous: Canines
@@ -231,16 +217,13 @@
 
 <script>
     $(document).ready(function() {
-        // Toggle flashcard mode
         $('#flashcardToggle').click(function() {
             $('#animalCardsContainer').toggleClass('flashcard-mode');
             $(this).toggleClass('active');
             
-            // Reset any flipped cards when toggling modes
             $('.animal-card-inner').removeClass('flipped');
         });
         
-        // In flashcard mode, clicking a card will flip it
         $('.animal-card').click(function() {
             if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
                 $(this).find('.animal-card-inner').toggleClass('flipped');

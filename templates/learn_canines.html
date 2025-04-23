@@ -2,7 +2,6 @@
 
 {% block content %}
 <style>
-    /* Custom styling for centered cards in a single row */
     #animalCardsContainer {
         display: flex;
         flex-wrap: nowrap;
@@ -21,19 +20,16 @@
         margin-bottom: 20px;
     }
     
-    /* Fix for card bottoms being cut off */
     .animal-name {
         font-size: 1.25rem !important;
         bottom: 10px !important;
         margin-bottom: 0 !important;
     }
     
-    /* Move info icon up to prevent it being cut off */
     .info-icon {
         bottom: 10px !important;
     }
     
-    /* Remove bullet points from card back paragraphs */
     .animal-card-back p:before {
         content: none !important;
     }
@@ -44,7 +40,6 @@
         margin-bottom: 0 !important;
     }
     
-    /* Enhanced navigation buttons layout */
     .navigation-buttons {
         display: flex !important;
         flex-direction: row !important;
@@ -96,7 +91,6 @@
             max-width: 300px;
         }
         
-        /* Ensure buttons stay on the same line even on mobile */
         .navigation-buttons {
             flex-wrap: nowrap !important;
         }
@@ -106,7 +100,6 @@
 <div class="learn-container">
     <h1 class="animal-group-title">Canines</h1>
     
-    <!-- Characteristics List -->
     <ul class="characteristics-list">
         <li><i class="fas fa-paw"></i> Oval shape with four toes and a heel pad that is concave at the bottom</li>
         <li><i class="fas fa-paw"></i> Four toes that point forward with two front toes lined up</li>
@@ -115,14 +108,11 @@
         <li><i class="fas fa-paw"></i> Can draw an "X" through the print</li>
     </ul>
     
-    <!-- Flashcard Mode  -->
     <div class="flashcard-mode-btn" id="flashcardToggle">
         <i class="fas fa-sync-alt"></i> Flashcard Mode
     </div>
     
-    <!-- Animal Cards Container -->
     <div class="animal-cards-container" id="animalCardsContainer">
-        <!-- Wolf Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -146,7 +136,6 @@
             </div>
         </div>
         
-        <!-- Coyote Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -170,7 +159,6 @@
             </div>
         </div>
         
-        <!-- Fox Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -194,7 +182,6 @@
             </div>
         </div>
         
-        <!-- Dog Card -->
         <div class="animal-card">
             <div class="animal-card-inner">
                 <div class="animal-card-front">
@@ -219,7 +206,6 @@
         </div>
     </div>
     
-    <!-- Navigation Buttons -->
     <div class="navigation-buttons">
         <a href="{{ url_for('learn') }}" class="nav-button back">
             <i class="fas fa-arrow-left"></i> Back to Categories
@@ -232,16 +218,13 @@
 
 <script>
     $(document).ready(function() {
-        // Toggle flashcard mode
         $('#flashcardToggle').click(function() {
             $('#animalCardsContainer').toggleClass('flashcard-mode');
             $(this).toggleClass('active');
             
-            // Reset any flipped cards when toggling modes
             $('.animal-card-inner').removeClass('flipped');
         });
         
-        // In flashcard mode, clicking a card will flip it
         $('.animal-card').click(function() {
             if ($('#animalCardsContainer').hasClass('flashcard-mode')) {
                 $(this).find('.animal-card-inner').toggleClass('flipped');
