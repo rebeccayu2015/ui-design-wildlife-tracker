@@ -2,22 +2,30 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- Content here -->
-<h1>
-    Welcome to Wildlife Tracking
-</h1>
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Welcome to Wildlife Tracking</h1>
+        <p class="hero-subtitle">Learn how to identify the tracks of North American animals!</p>
+    </div>
+</section>
 
-<h2>
-    Learn how to group and identify the tracks of North American animals!
-</h2>
-
-<div>
-    Learn
-    <img src="" alt="">
-</div>
-
-<div>
-    Quiz
-    <img src="" alt="">
-</div>
+<!-- Features Section -->
+<section class="features-section">
+    <!-- Learn Feature Card -->
+    <a href="/learn" class="feature-card text-decoration-none">
+        <div class="feature-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <h2 class="feature-title">Learn</h2>
+    </a>
+    
+    <!-- Quiz Feature Card -->
+    <a href="/quiz" class="feature-card text-decoration-none">
+        <div class="feature-icon">
+            <i class="fas fa-question-circle"></i>
+        </div>
+        <h2 class="feature-title">Quiz</h2>
+    </a>
+</section>
 {% endblock %}
