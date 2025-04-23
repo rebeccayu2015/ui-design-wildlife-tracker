@@ -237,11 +237,15 @@ def home():
 
 @app.route('/learn')
 def learn():
-    return render_template('learn.html')   
+    return render_template('learn/learn.html')   
 
 @app.route('/learn/canines')
 def learn_canines():
-    return render_template('learn_canines.html')   
+    return render_template('learn/learn_canines.html')   
+
+@app.route('/learn/track_characteristics')
+def learn_track_characteristics():
+    return render_template('learn/track_characteristics.html')   
 
 @app.route('/quiz')
 def quiz():
@@ -250,6 +254,7 @@ def quiz():
 @app.route('/quiz-result')
 def quiz_result():
     return render_template('quiz_result.html')
+
 
 
 # ==================================================================================================================

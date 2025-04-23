@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="track-char-container">
+  <h2 class="track-char-heading">Track Characteristics</h2>
+
+  <div class="track-char-body">
+    <!-- Sidebar Buttons -->
+    <div class="track-char-sidebar">
+      {% for item in ['Width', 'Depth', 'Length', 'Stride', 'Number of Toes', 'Straddle', 'Nails', 'Front_Rear'] %}
+      <button class="track-char-button" onclick="showCharacteristic('{{ item | lower | replace(' ', '_') }}')" id="btn-{{ item | lower | replace(' ', '_') }}">
+        {{ item }}
+      </button>
+      {% endfor %}
+      
+    </div>
+
+    <!-- Main Display -->
+    <div class="track-char-main">
+      <p id="char-description">Click on a track characteristic to learn more.</p>
+      <img id="char-img" src="{{ url_for('static', filename='images/track_characteristics/track_characteristics_base.png') }}" alt="Track characteristic diagram">
+    </div>
+  </div>
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="/" class="nav-button back">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+</div>
+
+  <div class="track-char-footer">
+    Learning: track characteristics <span id="char-label"></span>
+  </div>
+</div>
+
+<script>
+  const characteristics = {
+    width: {
+      description: "The distance from the left side of the print to the right side of the same print.",
+      image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_width.png') }}"
+    },
+    length: {
+        description: "The distance from the front of the print to the back of the print.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_length.png') }}"
+    },
+    stride: {
+        description: "The measurement from the heel of one print to the heel of the other print on the same side.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_stride.png') }}"
+    },
+    depth: {
+        description: "The distance from the left side of the print to the right side of the same print.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_depth.png') }}"
+    },
+    number_of_toes: {
+        description: "Different animal groups have different number of toes.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_num_toes.png') }}"
+    },
+    straddle: {
+        description: "The width of the track from the outside of the right track to the outside of the left track.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_straddle.png') }}"
+    },
+    nails: {
+        description: "Nails/claws may be retracted or extended depending on animal group and behavior.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_nails.png') }}"
+    },
+    front_rear: {
+        description: "Front and rear paws may have slightly different sizes and shapes, depending on the animal.",
+        image: "{{ url_for('static', filename='images/track_characteristics/track_characteristics_front_rear.png') }}"
+    },
+
+  };
+
+  function resetButtons() {
+    document.querySelectorAll('.track-char-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+  }
+
+  function showCharacteristic(key) {
+    const data = characteristics[key];
+    if (!data) return;
+
+    document.getElementById('char-description').textContent = data.description;
+    document.getElementById('char-img').src = data.image;
+    document.getElementById('char-label').textContent = `(${key.replace('_', ' ')})`;
+
+    resetButtons();
+    document.getElementById(`btn-${key}`).classList.add('active');
+  }
+</script>
+
+{% endblock %}

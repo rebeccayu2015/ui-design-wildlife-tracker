@@ -2,17 +2,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script>
-    // Redirect to canines learn page
-    //window.location.href = "/learn/canines";
-</script>
 
+<div class="learn-home-container">
 <h3 class="learn-h3">Click on a folder to learn more.</h3>
 <div class="learn-grid-wide grid-wide">
-  <div class="learn-folder" onclick="location.href='track-patterns.html'">
+  <div class="learn-folder" onclick="location.href='track_patterns.html'">
     <strong>Track Patterns</strong><br/><em>How an animal moves</em>
   </div>
-  <div class="learn-folder" onclick="location.href='track-characteristics.html'">
+  <div class="learn-folder" onclick="location.href='/learn/track_characteristics'">
     <strong>Track Characteristics</strong><br/><em>Anatomy of a print</em>
   </div>
 </div>
@@ -57,9 +54,20 @@
   </div>
 </div>
 
-<div class="learn-bottom-nav">
-  <a class="learn-link" href="/">← Back to Home</a>
+<!-- <div class="learn-bottom-nav">
+  <a class="nav-button back" href="/">
+    <i class="fas fa-arrow-left"> Back to Home
+  </a>
   <span>Learning: learning map</span>
-  <a class="learn-link" href="/quiz">Quiz →</a>
+  <a class="nav-button next" href="/quiz">Quiz →</a>
+</div> -->
+<div class="navigation-buttons">
+  <a href="/" class="nav-button back">
+      <i class="fas fa-arrow-left"></i> Back to Home
+  </a>
+  <a href="/quiz" class="nav-button next">
+    Quiz<i class="fas fa-arrow-right"></i>
+  </a>
+</div>
 </div>
 {% endblock %}
