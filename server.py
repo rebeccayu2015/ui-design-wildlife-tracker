@@ -398,17 +398,12 @@ def record_page_visit():
 @app.route('/')
 def home():
     record_page_visit()
-    return render_template('home.html')   
+    return render_template('learn/learn.html')   
 
 @app.route('/learn')
 def learn():
     record_page_visit()
     return render_template('learn/learn.html')   
-
-@app.route('/learn/canines')
-def learn_canines():
-    record_page_visit()
-    return render_template('learn/learn_canines.html')   
 
 @app.route('/learn/track-patterns')
 def track_patterns():
@@ -419,6 +414,12 @@ def track_patterns():
 def track_characteristics_page():
     record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
+
+@app.route('/learn/canines')
+def learn_canines():
+    record_page_visit()
+    return render_template('learn/learn_canines.html')   
+
 
 @app.route('/quiz/<id>')
 def view(id=None):
