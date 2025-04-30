@@ -398,17 +398,12 @@ def record_page_visit():
 @app.route('/')
 def home():
     record_page_visit()
-    return render_template('home.html')   
+    return render_template('learn/learn.html')   
 
 @app.route('/learn')
 def learn():
     record_page_visit()
     return render_template('learn/learn.html')   
-
-@app.route('/learn/canines')
-def learn_canines():
-    record_page_visit()
-    return render_template('learn/learn_canines.html')   
 
 @app.route('/learn/track-patterns')
 def track_patterns():
@@ -416,9 +411,15 @@ def track_patterns():
     return render_template('learn/track_patterns.html', patterns=patterns)
 
 @app.route('/learn/track-characteristics')
-def track_characteristics():
+def track_characteristics_page():
     record_page_visit()
     return render_template('learn/track_characteristics.html', characteristics=track_characteristics)
+
+@app.route('/learn/canines')
+def learn_canines():
+    record_page_visit()
+    return render_template('learn/learn_canines.html')   
+
 
 @app.route('/quiz/<id>')
 def view(id=None):
@@ -439,38 +440,47 @@ def view(id=None):
 
 @app.route('/learn/birds')
 def learn_birds():
+    record_page_visit()
     return render_template('learn_birds.html')
 
 @app.route('/learn/small-mammals')
 def learn_small_mammals():
+    record_page_visit()
     return render_template('learn_small_mammals.html')
 
 @app.route('/learn/reptiles-amphibians')
 def learn_reptiles_amphibians():
+    record_page_visit()
     return render_template('learn_reptiles_amphibians.html')
 
 @app.route('/learn/deer')
 def learn_deer():
+    record_page_visit()
     return render_template('learn_deer.html')
 
 @app.route('/learn/felines')
 def learn_felines():
+    record_page_visit()
     return render_template('learn_felines.html')
 
 @app.route('/learn/bears')
 def learn_bears():
+    record_page_visit()
     return render_template('learn_bears.html')
 
 @app.route('/learn/hoofs-large')
 def learn_hoofs_large():
+    record_page_visit()
     return render_template('learn_hoofs_large.html')
 
 @app.route('/learn/hoofs-small')
 def learn_hoofs_small():
+    record_page_visit()
     return render_template('learn_hoofs_small.html')
 
 @app.route('/learn/rodents')
 def learn_rodents():
+    record_page_visit()
     return render_template('learn_rodents.html')
 
 @app.route('/quiz')
