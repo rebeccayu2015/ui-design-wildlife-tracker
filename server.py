@@ -481,6 +481,22 @@ def quiz():
 def quiz_result():
     return render_template('quiz_result.html', suspects=suspects_data, score=quiz_score)
 
+# ==================================================================================================================
+# AJAX FUNCTIONS
+# ==================================================================================================================
+@app.route('/record_response', methods=['POST'])
+def record_response():
+    global quiz_score
+    json_data = request.get_json()
+    print(json_data)
+    answer = json_data['answer']
+
+    if answer == '1':
+        quiz_score = 0
+    else:
+        quiz_score += 3
+
+    return jsonify({"status": "ok"})
 
 
 # ==================================================================================================================
