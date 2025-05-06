@@ -4,15 +4,20 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_sort_prints.js') }}"></script>
 
+<script>
+    let sort_prints_responses = {{ sort_prints_responses|tojson }}
+</script>
 <h1>Quiz: Sort Prints</h1>
 
 <div>Drag and drop prints into their corresponding families.</div>
+
+<div id = "sort-prints-feedback"></div>
 
 <div class="track-row container">
     <div class="row">
     {% for i in range(1, 7) %}
         <div class="col-md-2">
-            <div id="i" class="suspect-track">
+            <div id="suspect-{{i}}" class="suspect-track">
                 <img src="{{ suspects[i|string]['track_image'] }}" alt="" class="img-fluid">
             </div>
         </div>
@@ -23,7 +28,7 @@
 <div class="container">
     <div class="family-container">
         {% for i in range(1, 10) %}
-        <div id="{{i}}" class="family-box">
+        <div id="family-{{i}}" class="family-box">
             {{ tracks[i|string]['name'] }}
         </div>
         {% endfor %}

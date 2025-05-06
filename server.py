@@ -272,15 +272,15 @@ clues_data = {
 
 # dictionary for sort prints user responses
 sort_prints_responses = {
-    "canines": [],
-    "felines": [],
-    "bears": [],
-    "hoofs (large)": [],
-    "hoofs (small)": [],
-    "rodents": [],
-    "small mammals": [],
-    "reptiles/amphibians": [],
-    "birds": []
+    "1": [],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": []
 }
 
 # dictionary for match prints user responses
@@ -428,7 +428,7 @@ def view(id=None):
     if id == '4':
         return render_template('quiz_tasks_suspects.html', tasks=tasks_data, suspects=suspects_data, id=int(id))
     if id == '6':
-        return render_template('quiz_sort_prints.html', suspects=suspects_data, tracks=track_data, id=int(id))
+        return render_template('quiz_sort_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), sort_prints_responses=sort_prints_responses)
     if id == '7':
         return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id))
     if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
@@ -490,6 +490,65 @@ def quiz():
 @app.route('/quiz-result')
 def quiz_result():
     return render_template('quiz_result.html', suspects=suspects_data, score=quiz_score)
+
+# ==================================================================================================================
+# AJAX FUNCTIONS
+# ==================================================================================================================
+@app.route('/record_response', methods=['POST'])
+def record_response():
+    global quiz_score
+    json_data = request.get_json()
+    print(json_data)
+    answer = json_data['answer']
+
+    if answer == '1':
+        quiz_score = 0
+    else:
+        quiz_score += 3
+
+    return jsonify({"status": "ok"})
+
+@app.route('/check_sort_prints', methods=['POST'])
+def submit_assignments():
+    results = request.get_json()  # a dict: {family_id: [suspect_ids]}
+    print(results)
+    total_number = 0
+    correct_matches = 0
+
+    sort_prints_responses = results
+    for family_id, suspect_ids in sort_prints_responses.items():
+        box_family = track_data[family_id]['name'].lower()
+        for suspect_id in suspect_ids:
+            suspect_family = suspects_data[suspect_id]['family'].lower()
+            total_number += 1
+            print(box_family, suspect_family)
+            if box_family == suspect_family:
+                correct_matches += 1
+    print(correct_matches, total_number)
+    '''
+    results = {}
+
+    for box_id, suspects in assignments.items():
+        expected = expected_correlations.get(box_id, set())
+        assigned = set(suspects)
+
+        # Compute intersection and status
+        matched = assigned & expected
+        extra = assigned - expected
+        missing = expected - assigned
+
+        results[box_id] = {
+            "matched": list(matched),
+            "extra": list(extra),
+            "missing": list(missing),
+        }
+    '''
+    response = {
+        "total_number": total_number,
+        "correct_matches": correct_matches
+    }
+
+    return jsonify(response)
 
 
 

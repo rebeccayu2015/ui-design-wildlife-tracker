@@ -11,7 +11,7 @@
     <div class="speech-container">
         <div class="speech-bubble">{{ dialogue }}</div>
         <div class="button-row">
-            {% if id != 1 %}
+            {% if id != 1 and id != 8 %}
             <a href="/quiz/{{ id - 1 }}" class="btn btn-outline-dark">Back</a>
             {% endif %}
             <a href="/quiz/{{ id + 1 }}" class="btn btn-dark">Next</a>
