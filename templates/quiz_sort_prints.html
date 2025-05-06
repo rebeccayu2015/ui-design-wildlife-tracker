@@ -4,9 +4,14 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_sort_prints.js') }}"></script>
 
+<script>
+    let sort_prints_responses = {{ sort_prints_responses|tojson }}
+</script>
 <h1>Quiz: Sort Prints</h1>
 
 <div>Drag and drop prints into their corresponding families.</div>
+
+<div id = "sort-prints-feedback"></div>
 
 <div class="track-row container">
     <div class="row">

@@ -942,3 +942,7 @@ body {
   width: auto;
   height: 100px;
 }
+
+#sort-prints-feedback{
+  text-align: center;;
+}
