@@ -932,6 +932,15 @@ body {
   font-weight: 500;
 }
 
+.suspect-track:hover{
+  cursor: move;
+}
+
+#sort-prints-feedback{
+  text-align: center;;
+}
+
+
 /* QUIZ: MATCH PRINTS */
 .empty-square {
   height: 100px;
@@ -939,6 +948,10 @@ body {
   border: 1px solid var(--secondary-color);
   margin: auto;
   margin-bottom: 10px;
+}
+
+#match-prints-feedback{
+  text-align: center;
 }
 
 /* QUIZ: IDENTIFY CULPRIT */
@@ -980,12 +993,4 @@ body {
 .img-fluid {
   width: auto;
   height: 100px;
-}
-
-#sort-prints-feedback{
-  text-align: center;;
-}
-
-#match-prints-feedback{
-  text-align: center;;
 }

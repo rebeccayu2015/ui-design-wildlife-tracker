@@ -46,7 +46,6 @@ $(document).ready(function () {
 
     $(".suspect-track").draggable({
         revert: true,
-        cursor: "move",
         zIndex: 1000,
     });
 
