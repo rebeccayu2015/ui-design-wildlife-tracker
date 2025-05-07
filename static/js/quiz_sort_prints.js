@@ -33,7 +33,6 @@ $(document).ready(function () {
                 else{ // TODO: add condition for case where not all the prints are sorted but all the sorted ones are correct
                     $("#sort-prints-feedback").text("You matched " + correct_matches + "/" + total_number + " prints correctly. Try again!");
                 }
-                console.log("Success");
             },
             error: function (request, status, error) {
                 console.log("Error");

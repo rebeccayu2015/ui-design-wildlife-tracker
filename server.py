@@ -270,7 +270,7 @@ clues_data = {
     }
 }
 
-# dictionary for sort prints user responses
+# dictionary for sort prints user responses (key = family id)
 sort_prints_responses = {
     "1": [],
     "2": [],
@@ -283,14 +283,14 @@ sort_prints_responses = {
     "9": []
 }
 
-# dictionary for match prints user responses
+# dictionary for match prints user responses (key = suspect id)
 match_prints_responses = {
-    "Brianna the Bear": "",
-    "Rebecca the Raccoon": "",
-    "Emily the Elk": "",
-    "Claire the Coyote": "",
-    "Ann the Armadillo": "",
-    "Shar the Squirrel": ""
+    "1": "",
+    "2": "",
+    "3": "",
+    "4": "",
+    "5": "",
+    "6": ""
 }
 
 # dictionary for tracking characteristics paws and descriptions
@@ -434,7 +434,7 @@ def view(id=None):
     if id == '6':
         return render_template('quiz_sort_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), sort_prints_responses=sort_prints_responses)
     if id == '7':
-        return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id))
+        return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), match_prints_responses=match_prints_responses)
     if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
         return render_template('quiz_clue.html', clues=clues_data, id=int(id))
     if id == '16':
@@ -513,12 +513,13 @@ def record_response():
     return jsonify({"status": "ok"})
 
 @app.route('/check_sort_prints', methods=['POST'])
-def submit_assignments():
+def check_sort_prints():
     results = request.get_json()  # a dict: {family_id: [suspect_ids]}
     print(results)
     total_number = 0
     correct_matches = 0
 
+    global sort_prints_responses 
     sort_prints_responses = results
     for family_id, suspect_ids in sort_prints_responses.items():
         box_family = track_data[family_id]['name'].lower()
@@ -554,6 +555,28 @@ def submit_assignments():
 
     return jsonify(response)
 
+@app.route('/check_match_prints', methods=['POST'])
+def check_match_prints():
+    results = request.get_json()  # a dict: {suspect_id: track_id}
+    #print(results)
+
+    global match_prints_responses
+
+    total_number = 0
+    correct_matches = 0
+    match_prints_responses = results
+    for suspect_id, track_id in match_prints_responses.items():
+        total_number += 1
+        if suspect_id == track_id:
+            correct_matches += 1
+    #print(correct_matches, total_number)
+
+    response = {
+        "total_number": total_number,
+        "correct_matches": correct_matches
+    }
+
+    return jsonify(response)
 
 
 # ==================================================================================================================

@@ -2,9 +2,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let match_prints_responses = {{ match_prints_responses|tojson }}
+</script>
 <script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_match_prints.js') }}"></script>
 
 <h1>Quiz: Match Prints</h1>
+
+<div id = "match-prints-feedback"></div>
 
 <div class="track-row container">
     <div class="row">
