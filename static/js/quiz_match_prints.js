@@ -50,7 +50,6 @@ $(document).ready(function () {
     });
 
     $(".empty-square").droppable({
-        //accept: ".suspect-track",
         drop: function (event, ui) {
             let $square = $(this);
             let $newItem = ui.draggable;

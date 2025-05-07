@@ -44,14 +44,21 @@ $(document).ready(function () {
     })
 
     $(".suspect-track").draggable({
-        revert: true,
+        revert: "invalid",
         zIndex: 1000,
     });
 
     $(".family-box").droppable({
-        //accept: ".suspect-track",
+        accept: ".suspect-track",
         drop: function (event, ui) {
             $(this).append(ui.draggable);
+
+            ui.draggable.css({
+                top: '0px',
+                left: '0px',
+                position: 'relative' // or 'static' depending on your layout
+            });
+        
         }
     });
 });
