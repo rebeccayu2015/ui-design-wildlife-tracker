@@ -133,7 +133,7 @@ track_data = {
     },
     "8": {
         "group_id": "8",
-        "name": "Reptiles/Amphibians",
+        "name": "Reptiles & Amphibians",
         "cover_image": "<insert GitHub link",
         "description": "<insert text>",
         "animals": {
@@ -318,6 +318,26 @@ clues_data = {
     }
 }
 
+# dictionary for score feedback
+score_data = {
+    "1": {
+        "clue_id": "1",
+        "text": "Perfect score. You’re a natural!"
+    },
+    "2": {
+        "clue_id": "2",
+        "text": "You know your stuff!"
+    },
+    "3": {
+        "clue_id": "3",
+        "text": "You’re getting there."
+    },
+    "4": {
+        "clue_id": "4",
+        "text": "Your tracking skills might need some work..."
+    }
+}
+
 # dictionary for sort prints user responses (key = family id)
 sort_prints_responses = {
     "1": [],
@@ -476,6 +496,11 @@ def learn_canines():
 @app.route('/quiz/<id>')
 def view(id=None):
     if id == '1' or id == '2' or id == '3' or id == '8' or id == '9' or id == '10':
+        if id == '1':
+            global quiz_score
+            global clues
+            quiz_score = 0
+            clues = 1
         return render_template('quiz_dialogue.html', dialogue=dialogue_data[id]['text'], id=int(id))
     if id == '4':
         return render_template('quiz_tasks_suspects.html', tasks=tasks_data, suspects=suspects_data, id=int(id))
@@ -543,7 +568,17 @@ def quiz():
 
 @app.route('/quiz-result')
 def quiz_result():
-    return render_template('quiz_result.html', suspects=suspects_data, score=quiz_score)
+    feedback = ""
+    if quiz_score <= 3:
+        feedback = score_data['1']['text']
+    elif quiz_score <= 5:
+        feedback = score_data['2']['text']
+    elif quiz_score <= 7:
+        feedback = score_data['3']['text']
+    else:
+        feedback = score_data['4']['text']
+
+    return render_template('quiz_result.html', suspects=suspects_data, score=quiz_score, feedback=feedback)
 
 # ==================================================================================================================
 # AJAX FUNCTIONS

@@ -5,20 +5,45 @@
     <h1>Quiz: End</h1>
 
     <div class="result-wrapper">
-        <div class="result-container">
-            <div>Congrats! You have successfully solved the case. The culprit was:</div>
-            <img src="{{ suspects['1']['suspect_image'] }}" alt="">
-            <div>{{ suspects['1']['name'] }}</div>
-        </div>
-        <div class="score-container">
-            <div>Your score:</div>
-            <div>{{ score }}</div>
-            <hr>
-            <div><b>Scoring breakdown:</b></div>
-            <div><b>3:</b>Perfect score. You’re a natural!</div>
-            <div><b>4-5:</b>You know your stuff!</div>
-            <div><b>6-7:</b>You’re getting there.</div>
-            <div><b>8+:</b>Your tracking skills might need some work...</div>
+        <div class="row">
+            <div class="result-container col-md-6">
+                <div class="culprit-container">
+                    <div class="image-wrapper">
+                        <img class="culprit-image" src="/static/images/culprit_result_image.png" alt="Brianna the Bear">
+                        <img class="culprit-track" src="/static/images/culprit_result_track.png" alt="Paw Print">
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-container pastel-box-result col-md-6">
+                <h1 class="congrats">Congrats!</h1>
+                <div class="subhead">You have solved the case.</div>
+
+                <div class="culprit-wrapper">
+                    <div>The culprit was:</div>
+                    <div class="culprit-name"><b>{{ suspects['1']['name'] }}</b></div>
+                </div>
+
+                <div class="score-wrapper">
+                    <div class="score-label">
+                    <span>Your score:</span>
+                    <div class="tooltip-wrapper">
+                        <i class="fas fa-info info-icon-score"></i>
+                        <div class="tooltip-box">
+                        <div><b>Scoring breakdown:</b></div>
+                        <div><b>3:</b> Perfect score. You’re a natural!</div>
+                        <div><b>4–5:</b> You know your stuff!</div>
+                        <div><b>6–7:</b> You’re getting there.</div>
+                        <div><b>8+:</b> Your tracking skills might need some work...</div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="score">{{ score }}</div>
+                    <div class="score-feedback">{{ feedback }}</div>
+                </div>
+
+                <a href="/quiz/1" class="btn btn-success result-btn">Try again</a>
+            </div>
         </div>
     </div>
 </div>
