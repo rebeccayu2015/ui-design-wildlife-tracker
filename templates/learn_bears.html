@@ -11,6 +11,24 @@
     #animalCardsContainer .animal-card {
         width: 280px;
         max-width: 45%;
+        margin-top: 5px;
+        overflow: visible;
+        position: relative;
+    }
+    
+    #animalCardsContainer .animal-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transform-style: preserve-3d;
+        overflow: visible;
+    }
+    
+    #animalCardsContainer .animal-card-front {
+        overflow: hidden;
+        border-radius: var(--border-radius);
+        background-color: rgba(255, 255, 255, 0.7);
     }
     
     @media (max-width: 768px) {
@@ -35,30 +53,6 @@
         margin-bottom: 0 !important;
     }
     
-    .navigation-buttons {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        margin-top: 20px !important;
-        width: 100% !important;
-        clear: both !important;
-    }
-
-    .navigation-buttons .nav-button {
-        position: relative !important;
-        flex: 0 0 auto !important;
-        display: inline-block !important;
-    }
-
-    .navigation-buttons .back {
-        margin-right: auto !important;
-    }
-
-    .navigation-buttons .next {
-        margin-left: auto !important;
-    }
-
     @media (max-width: 768px) {
         .navigation-buttons {
             flex-wrap: nowrap !important;

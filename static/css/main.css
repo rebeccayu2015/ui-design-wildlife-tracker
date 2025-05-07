@@ -149,29 +149,31 @@ body {
 
 .flashcard-mode-btn {
   display: block;
-  background-color: var(--light-gray);
+  background-color: var(--accent-color);
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
-  border: 1px solid var(--secondary-color);
+  border: 2px solid black;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--white);
   margin: 0 auto 2rem;
   cursor: pointer;
   transition: all 0.3s ease;
   user-select: none;
   width: fit-content;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .flashcard-mode-btn:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .flashcard-mode-btn.active {
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .animal-cards-container {
@@ -179,10 +181,16 @@ body {
   flex-wrap: nowrap;
   justify-content: center;
   gap: 1rem;
-  padding-bottom: 10px;
-  overflow-x: auto;
+  padding: 15px 0;
   margin: 0 auto;
   max-width: 100%;
+  overflow: visible !important;
+  position: relative;
+  grid-template-columns: none;
+  background-color: transparent;
+  border-radius: 6px;
+  font-size: inherit;
+  padding-top: 10px;
 }
 
 #animalCardsContainer .animal-card {
@@ -190,23 +198,28 @@ body {
   width: 220px;
   min-width: 200px;
   margin-bottom: 20px;
+  margin-top: 5px;
+  overflow: visible;
+  position: relative;
 }
 
 .animal-card {
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   height: 400px;
   perspective: 1000px;
   cursor: default;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 5px;
 }
 
 .animal-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
 .flashcard-mode .animal-card {
@@ -236,16 +249,18 @@ body {
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
+  border-radius: var(--border-radius);
+  overflow: hidden;
 }
 
 .animal-card-front {
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 2;
   transform: rotateY(0deg);
 }
 
 .animal-card-back {
-  background-color: var(--light-gray);
+  background-color: rgba(224, 225, 220, 0.7);
   color: var(--primary-color);
   transform: rotateY(180deg);
   justify-content: center;
@@ -317,7 +332,7 @@ body {
   left: 1rem;
   width: 2.25rem;
   height: 2.25rem;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--secondary-color);
   border-radius: 50%;
   display: flex;
@@ -352,7 +367,7 @@ body {
   bottom: 4rem;
   left: 1rem;
   transform: translateX(0);
-  background-color: var(--dark-gray);
+  background-color: var(--primary-color);
   color: var(--white);
   padding: 1rem;
   border-radius: var(--border-radius);
@@ -362,6 +377,16 @@ body {
   opacity: 0;
   transition: opacity 0.3s, transform 0.3s;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  line-height: 1.4;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tooltip p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
 }
 
 .tooltip::after {
@@ -372,13 +397,14 @@ body {
   margin-left: -5px;
   border-width: 10px;
   border-style: solid;
-  border-color: var(--dark-gray) transparent transparent transparent;
+  border-color: var(--primary-color) transparent transparent transparent;
 }
 
 .info-icon:hover + .tooltip {
   visibility: visible;
   opacity: 1;
   transform: translateY(-5px);
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .navigation-buttons {
@@ -459,14 +485,6 @@ body {
   }
 }
 
-.animal-cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    font-size: 16px;
-    padding: 10px 20px;
-    background-color: var(--white);
-    border-radius: 6px;
-}
-  
 .navigation-buttons {
   flex-direction: column;
   gap: 1rem;
@@ -770,10 +788,6 @@ body {
   text-align: right;
 }
 
-.animal-cards-container {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-}
-
 .navigation-buttons {
   flex-direction: column;
   gap: 1rem;
@@ -835,7 +849,7 @@ body {
   font-size: 1.4rem;
   border-radius: 50%;
   border: 2px solid #444;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
