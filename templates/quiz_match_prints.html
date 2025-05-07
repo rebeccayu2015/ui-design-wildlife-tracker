@@ -7,33 +7,35 @@
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_match_prints.js') }}"></script>
 
-<h1>Quiz: Match Prints</h1>
+<div class="container content">
+    <h1>Quiz: Match Prints</h1>
 
-<div id = "match-prints-feedback"></div>
+    <div id = "match-prints-feedback"></div>
 
-<div class="track-row container">
-    <div class="row">
-    {% for i in range(1, 7) %}
-        <div class="col-md-2">
-            <div id="track-{{i}}" class="suspect-track">
-                <img src="{{ suspects[i|string]['track_image'] }}" alt="" class="img-fluid">
+    <div class="track-row container">
+        <div class="row">
+        {% for i in order %}
+            <div class="col-md-2">
+                <div id="track-{{i}}" class="suspect-track">
+                    <img src="{{ suspects[i|string]['track_image'] }}" alt="" class="img-fluid">
+                </div>
             </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
-
-<div id="suspects" class="tab-panel container">
-    <div class="row">
-        {% for i in range(1,7) %}
-        <div class="col-md-2">
-            <div class="empty-square" id="suspect-{{i}}"></div>
-            <div class="suspect-card text-center">
-                <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
-                <div>{{ suspects[i|string]['name'] }}</div>
-            </div>
-        </div>
         {% endfor %}
+        </div>
+    </div>
+
+    <div id="suspects" class="tab-panel container">
+        <div class="row">
+            {% for i in range(1,7) %}
+            <div class="col-md-2">
+                <div class="empty-square" id="suspect-{{i}}"></div>
+                <div class="suspect-card text-center">
+                    <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
+                    <div>{{ suspects[i|string]['name'] }}</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

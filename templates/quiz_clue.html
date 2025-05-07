@@ -2,21 +2,43 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h1>Quiz: Clues</h1>
+<script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_clue.js') }}"></script>
 
-<div class="clue-wrapper">
-    <div class="instructions-container">
-        <div>Read each clue. If you think you know the culprit, click “Identify the Culprit!”</div>
-        <div>Note: Using more clues and especially framing the wrong suspect will lower your final score!</div>
-    </div>
-    <div class="clue-container">
-        <div>Clue #{{ id - 10 }}</div>
-        <div class="clue">{{ clues[id|string]['text'] }}</div>
-        <div class="button-row">
-            <a href="/quiz/16" class="btn btn-primary">Identify the Culprit!</a>
-            {% if id != 15 %}
-            <a href="/quiz/{{ id + 1 }}" class="btn btn-dark">Next</a>
-            {% endif %}
+<div class="container content">
+    <h1>Quiz: Clues</h1>
+
+    <div class="clue-wrapper">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="instructions-container">
+                    <div>Read each clue. <b>If you think you know the culprit, click on the culprit.</b></div>
+                    <div class="tiny-text">Note: Using more clues and especially framing the wrong suspect will hurt your final score!</div>
+                </div>
+                <div id="suspects" class="tab-panel container">
+                    <div class="feedback"></div>
+                    <div class="row">
+                        {% for i in range(1,7) %}
+                        <div class="col-md-4">
+                            <div id="{{i}}" class="suspect-card text-center">
+                                <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
+                                <div class="tiny-text">{{ suspects[i|string]['name'] }}</div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <button class="btn btn-dark try-again-btn d-none">Try Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clue-container col-md-6 pastel-box-clues">
+                <div>Clues:</div>
+                <div class="clue">{{ id - 10 }}. {{ clues[id|string]['text'] }}</div>
+                <div class="button-row">
+                    {% if id != 15 %}
+                    <button class="btn btn-success clue-btn">I need another clue</button>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@
   --secondary-color: #718096;
   --text-color: #1a202c;
   --white: #ffffff;
+  --pastel: #fff2cc;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --border-radius: 12px;
 }
@@ -871,7 +872,6 @@ body {
 }
 
 .clue-wrapper {
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -883,14 +883,24 @@ body {
   flex-basis: 50%;
 }
 
+.tiny-text {
+  font-size: 20px;
+}
+
 .pastel-box {
-  background-color: #fff2cc;
+  background-color: var(--pastel);
   border-radius: 10px;
   border: 1px solid var(--accent-color);
   padding: 50px;
   margin-top: 50px;
   margin-bottom: 50px;
   margin: auto;
+}
+
+.btn-success {
+  background-color: var(--accent-color);
+  border: 1px solid  var(--pastel);
+  color: #fff;
 }
 
 /* QUIZ: SORT PRINTS */
@@ -943,9 +953,25 @@ body {
   text-align: center;
 }
 
-/* QUIZ: IDENTIFY CULPRIT */
+/* QUIZ: CLUE */
+#suspects {
+  margin-top: 10px;
+  text-align: center;
+}
+
 .feedback {
   color: red;
+}
+
+.pastel-box-clues {
+  background-color: var(--pastel);
+  border-radius: 30px;
+  border: 1px solid var(--accent-color);
+  padding: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin: auto;
+  height: 500px;
 }
 
 /* QUIZ RESULT */

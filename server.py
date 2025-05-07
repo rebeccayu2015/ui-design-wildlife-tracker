@@ -4,6 +4,7 @@ from flask import Response, request, jsonify
 import os
 import logging
 from datetime import datetime
+import random
 
 app = Flask(__name__)
 
@@ -152,6 +153,7 @@ track_data = {
 
 # initializing quiz score
 quiz_score = 0
+clues = 1
 
 # dictionary for dialogues
 dialogue_data = {
@@ -480,10 +482,12 @@ def view(id=None):
     if id == '6':
         return render_template('quiz_sort_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), sort_prints_responses=sort_prints_responses)
     if id == '7':
-        return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), match_prints_responses=match_prints_responses)
-    if id == '11' or id == '12' or id == '13' or id == '14' or id == '15':
-        return render_template('quiz_clue.html', clues=clues_data, id=int(id))
-    if id == '16':
+        order = list(range(1, len(suspects_data)+1))
+        random.shuffle(order)
+        return render_template('quiz_match_prints.html', suspects=suspects_data, tracks=track_data, id=int(id), match_prints_responses=match_prints_responses, order=order)
+    if id == '11':
+        return render_template('quiz_clue.html', clues=clues_data, id=int(id), suspects=suspects_data)
+    if id == '12':
         return render_template('quiz_identify_culprit.html', suspects=suspects_data, id=int(id))
     else:
         return render_template('quiz.html')
@@ -558,12 +562,23 @@ def record_response():
 
     return jsonify({"status": "ok"})
 
+@app.route('/clue', methods=['POST'])
+def clue():
+    global quiz_score
+    global clues
+    
+    clues += 1
+    quiz_score += 1
+
+    return jsonify({"status": "ok", "clues": clues, "clues_data": clues_data})
+
 @app.route('/check_sort_prints', methods=['POST'])
 def check_sort_prints():
     results = request.get_json()  # a dict: {family_id: [suspect_ids]}
     total_number = 0
     correct_matches = 0
 
+    global quiz_score
     global sort_prints_responses 
     sort_prints_responses = results
     for family_id, suspect_ids in sort_prints_responses.items():
@@ -573,6 +588,9 @@ def check_sort_prints():
             total_number += 1
             if box_family == suspect_family:
                 correct_matches += 1
+
+    quiz_score += 1
+
     '''
     results = {}
 
@@ -602,6 +620,7 @@ def check_sort_prints():
 def check_match_prints():
     results = request.get_json()  # a dict: {suspect_id: track_id}
 
+    global quiz_score
     global match_prints_responses
 
     total_number = 0
@@ -611,6 +630,8 @@ def check_match_prints():
         total_number += 1
         if suspect_id == track_id: # track matches to suspect
             correct_matches += 1
+
+    quiz_score += 1
 
     response = {
         "total_number": total_number,
