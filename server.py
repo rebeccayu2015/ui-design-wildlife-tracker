@@ -515,7 +515,6 @@ def record_response():
 @app.route('/check_sort_prints', methods=['POST'])
 def check_sort_prints():
     results = request.get_json()  # a dict: {family_id: [suspect_ids]}
-    print(results)
     total_number = 0
     correct_matches = 0
 
@@ -526,10 +525,8 @@ def check_sort_prints():
         for suspect_id in suspect_ids:
             suspect_family = suspects_data[suspect_id]['family'].lower()
             total_number += 1
-            print(box_family, suspect_family)
             if box_family == suspect_family:
                 correct_matches += 1
-    print(correct_matches, total_number)
     '''
     results = {}
 
@@ -558,7 +555,6 @@ def check_sort_prints():
 @app.route('/check_match_prints', methods=['POST'])
 def check_match_prints():
     results = request.get_json()  # a dict: {suspect_id: track_id}
-    #print(results)
 
     global match_prints_responses
 
@@ -567,9 +563,8 @@ def check_match_prints():
     match_prints_responses = results
     for suspect_id, track_id in match_prints_responses.items():
         total_number += 1
-        if suspect_id == track_id:
+        if suspect_id == track_id: # track matches to suspect
             correct_matches += 1
-    #print(correct_matches, total_number)
 
     response = {
         "total_number": total_number,

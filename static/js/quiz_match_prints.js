@@ -25,7 +25,7 @@ $(document).ready(function () {
                 console.log(response);
                 let correctMatches = response['correct_matches']
                 let totalNumber = response['total_number']
-                if (correctMatches == totalNumber) { // TODO: add condition to make sure that total_number = total number of prints
+                if (correctMatches == totalNumber) { // TODO: move button appearance to this block
                     $("#match-prints-feedback").text("Great job! You matched all " + correctMatches + "/" + totalNumber + " prints correctly. Click next to continue.");
                    
                 }
