@@ -344,7 +344,8 @@ patterns = [
     "track_img": "images/track_patterns/zig-zaggers.png",
     "animal_imgs": [
         "images/track_patterns/dear.gif",
-        "images/track_patterns/wolf.gif"
+        "images/track_patterns/fox.gif",
+        "images/track_patterns/coyote.gif"
     ]
 },
 {
@@ -352,7 +353,8 @@ patterns = [
     "track_img": "images/track_patterns/leapers-hoppers.png",
     "animal_imgs": [
         "images/track_patterns/bunny.gif",
-        "images/track_patterns/bunny.gif"
+        "images/track_patterns/squirrel.gif",
+        "images/track_patterns/frog.gif"
     ]
 },
 {
@@ -360,7 +362,8 @@ patterns = [
     "track_img": "images/track_patterns/bounders.png",
     "animal_imgs": [
         "images/track_patterns/otter.gif",
-        "images/track_patterns/otter.gif"
+        "images/track_patterns/marten.gif",
+        "images/track_patterns/weasel.gif"
     ]
 },
 {
@@ -368,7 +371,8 @@ patterns = [
     "track_img": "images/track_patterns/waddlers.png",
     "animal_imgs": [
         "images/track_patterns/bear.gif",
-        "images/track_patterns/bear.gif"
+        "images/track_patterns/penguin.gif",
+        "images/track_patterns/porcupine.gif"
     ]
 },
 ]
