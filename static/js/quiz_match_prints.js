@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $(".suspect-track").each(function () {
+        $(this).data("originalParent", $(this).parent());
+    });
+
     $(".match-btn").on("click", function () {
         $(".next-btn").removeClass('d-none')
         $(".next-btn").addClass('d-block')
@@ -8,9 +12,6 @@ $(document).ready(function () {
         revert: true,
         cursor: "move",
         zIndex: 1000,
-        start: function (event, ui) {
-            $(this).data("originalParent", $(this).parent());
-        }
     });
 
     $(".empty-square").droppable({
