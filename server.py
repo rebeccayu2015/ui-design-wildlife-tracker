@@ -202,50 +202,96 @@ tasks_data = {
 }
 
 # dictionary for suspects (image, name, track, family)
+# suspects_data = {
+#     "1": {
+#         "suspect_id": "1",
+#         "name": "Brianna the Bear",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/grizzy_bear_track_front.png?raw=true",
+#         "family": "bears"
+#     },
+#     "2": {
+#         "suspect_id": "2",
+#         "name": "Rebecca the Raccoon",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_track_front.png?raw=true",
+#         "family": "small mammals"
+#     },
+#     "3": {
+#         "suspect_id": "3",
+#         "name": "Emily the Elk",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_track_front.png?raw=true",
+#         "family": "hoofs (large)"
+#     },
+#     "4": {
+#         "suspect_id": "4",
+#         "name": "Claire the Coyote",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_track_front.png?raw=true",
+#         "family": "canines"
+#     },
+#     "5": {
+#         "suspect_id": "5",
+#         "name": "Ann the Armadillo",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_track_front.png?raw=true",
+#         "family": "small mammals"
+#     },
+#     "6": {
+#         "suspect_id": "6",
+#         "name": "Shar the Squirrel",
+#         "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png?raw=true",
+#         "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_track_front.png?raw=true",
+#         "family": "rodents"
+#     }
+# }
+
 suspects_data = {
     "1": {
         "suspect_id": "1",
         "name": "Brianna the Bear",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/brianna_the_bear.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/grizzy_bear_track_front.png?raw=true",
+        "suspect_image": "/static/images/brianna_the_bear.png",
+        "track_image": "/static/images/bear_paw.png",
         "family": "bears"
     },
     "2": {
         "suspect_id": "2",
         "name": "Rebecca the Raccoon",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/rebecca_the_raccoon.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/raccoon_track_front.png?raw=true",
+        "suspect_image": "/static/images/rebecca_the_raccoon.png",
+        "track_image": "/static/images/raccoon_track_front.png",
         "family": "small mammals"
     },
     "3": {
         "suspect_id": "3",
         "name": "Emily the Elk",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/emily_the_elk.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/elk_track_front.png?raw=true",
+        "suspect_image": "/static/images/emily_the_elk.png",
+        "track_image": "/static/images/elk_track_front.png",
         "family": "hoofs (large)"
     },
     "4": {
         "suspect_id": "4",
         "name": "Claire the Coyote",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/claire_the_coyote.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/coyote_track_front.png?raw=true",
+        "suspect_image": "/static/images/claire_the_coyote.png",
+        "track_image": "/static/images/coyote_track_front.png",
         "family": "canines"
     },
     "5": {
         "suspect_id": "5",
         "name": "Ann the Armadillo",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/ann_the_armadillo.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/armadillo_track_front.png?raw=true",
+        "suspect_image": "/static/images/ann_the_armadillo.png",
+        "track_image": "/static/images/armadillo_track_front.png",
         "family": "small mammals"
     },
     "6": {
         "suspect_id": "6",
         "name": "Shar the Squirrel",
-        "suspect_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/shar_the_squirrel.png?raw=true",
-        "track_image": "https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/squirrel_track_front.png?raw=true",
+        "suspect_image": "/static/images/shar_the_squirrel.png",
+        "track_image": "/static/images/squirrel_track_front.png",
         "family": "rodents"
     }
 }
+
 # dictionary for clues
 clues_data = {
     "11": {

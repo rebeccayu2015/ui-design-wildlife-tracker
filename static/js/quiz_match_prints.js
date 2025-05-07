@@ -27,7 +27,8 @@ $(document).ready(function () {
                 let totalNumber = response['total_number']
                 if (correctMatches == totalNumber) { // TODO: move button appearance to this block
                     $("#match-prints-feedback").text("Great job! You matched all " + correctMatches + "/" + totalNumber + " prints correctly. Click next to continue.");
-                   
+                    $(".next-btn").removeClass('d-none')
+                    $(".next-btn").addClass('d-block')
                 }
                 else{ // TODO: add condition for case where not all the prints are sorted but all the sorted ones are correct
                     $("#match-prints-feedback").text("You matched " + correctMatches + "/" + totalNumber + " prints correctly. Try again!");
@@ -40,8 +41,6 @@ $(document).ready(function () {
                 console.log(error);
             }
         })
-        $(".next-btn").removeClass('d-none')
-        $(".next-btn").addClass('d-block')
     })
 
     $(".suspect-track").draggable({

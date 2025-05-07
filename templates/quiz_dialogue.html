@@ -3,24 +3,28 @@
 
 {% block content %}
 <!-- Content here -->
-<h1>
-    Quiz: Murder Mystery
-</h1>
+<div class="container content">
+    <h1>
+        Quiz: Murder Mystery
+    </h1>
 
-<div class="dialogue-wrapper">
-    <div class="speech-container">
-        <div class="speech-bubble">{{ dialogue }}</div>
-        <div class="button-row">
-            {% if id != 1 and id != 8 %}
-            <a href="/quiz/{{ id - 1 }}" class="btn btn-outline-dark">Back</a>
-            {% endif %}
-            <a href="/quiz/{{ id + 1 }}" class="btn btn-dark">Next</a>
+    <div class="dialogue-wrapper">
+        <div class="speech-container">
+            <div class="speech-bubble">{{ dialogue }}</div>
+            <div class="button-row">
+                {% if id != 1 and id != 8 %}
+                <a href="/quiz/{{ id - 1 }}" class="btn btn-outline-dark">Back</a>
+                {% endif %}
+                <a href="/quiz/{{ id + 1 }}" class="btn btn-dark">Next</a>
+            </div>
+        </div>
+        <div class="investigator-container">
+            <div>Isabelle the Investigator</div>
+            <img class="investigator" src="/static/images/investigator.png" alt="Investigator">
+            <!-- <img class="investigator" src="https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/investigator.png?raw=true" alt="Investigator"> -->
         </div>
     </div>
-    <div class="investigator-container">
-        <div>Isabelle the Investigator</div>
-        <img class="investigator" src="https://github.com/rebeccayu2015/ui-design-wildlife-tracker/blob/main/static/images/investigator.png?raw=true" alt="Investigator">
-    </div>
 </div>
+
 <a href="/" class="btn btn-dark home-btn">Back to Home</a>
 {% endblock %}

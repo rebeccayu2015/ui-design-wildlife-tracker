@@ -5,35 +5,35 @@
 <!-- Content here -->
 <script type="text/javascript" src="{{ url_for('static', filename = '/js/quiz_tasks_suspects.js') }}"></script>
 
-<h1>
-    Quiz: Tasks/Suspects
-</h1>
+<div class="container content">
+    <h1>
+        Quiz: Tasks/Suspects
+    </h1>
 
-<div>After some careful thought and investigation, you’ve compiled a list of tasks and potential suspects.</div>
+    <div>After some careful thought and investigation, you’ve compiled a list of tasks and potential suspects.</div>
 
-<div class="tabs">
-    <button class="tab-btn active">Tasks</button>
-    <button class="tab-btn">Suspects</button>
-</div>
-
-<div class="tab-content">
-    <div id="tasks" class="tab-panel">
-        <ul class="task-list">
-        {% for i in range(1,5) %}
-        <li>{{ tasks[i|string]['text'] }}</li>
-        {% endfor %}
-        </ul>
-    </div>
-    <div id="suspects" class="tab-panel container">
-        <div class="row">
-            {% for i in range(1,7) %}
-            <div class="col-md-2">
-                <div class="suspect-card text-center">
-                    <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
-                    <div>{{ suspects[i|string]['name'] }}</div>
-                </div>
-            </div>
+    <div class="ts-display pastel-box container">
+        <div id="tasks" class="tab-panel">
+            <h2>Tasks</h2>
+            <ul class="task-list">
+            {% for i in range(1,5) %}
+            <li>{{ tasks[i|string]['text'] }}</li>
             {% endfor %}
+            </ul>
+        </div>
+
+        <div id="suspects" class="tab-panel container">
+            <h2>Suspects</h2>
+            <div class="row">
+                {% for i in range(1,7) %}
+                <div class="col-md-4">
+                    <div class="suspect-card text-center">
+                        <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
+                        <div>{{ suspects[i|string]['name'] }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
