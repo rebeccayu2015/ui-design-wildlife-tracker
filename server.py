@@ -254,7 +254,7 @@ suspects_data = {
         "suspect_id": "1",
         "name": "Brianna the Bear",
         "suspect_image": "/static/images/brianna_the_bear.png",
-        "track_image": "/static/images/bear_paw.png",
+        "track_image": "/static/images/grizzy_bear_track_front.png",
         "family": "bears"
     },
     "2": {
