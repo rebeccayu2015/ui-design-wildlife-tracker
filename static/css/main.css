@@ -414,13 +414,18 @@ body {
   border: 2px solid black;
   white-space: nowrap;
   width: auto;
+  margin-bottom:1rem;
+  
+}
+
+.nav-button .track-pattern-btn{
   margin-top:3rem;
 }
 
 
 .nav-button:hover, .track-char-button:hover {
   background-color: var(--secondary-color);
-  color: var(--white);
+
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -580,10 +585,6 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.nav-button:hover {
-  background-color: var(--secondary-color);
-}
-
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
@@ -603,21 +604,26 @@ body {
 /* end learn.html */
 
 
+
+.track-pattern-description{
+  text-align: center; 
+  width:90%;
+  margin: auto; 
+  font-size: 1.5rem;
+  padding: .5rem 0;
+  color: var(--primary-color);
+}
+
+
+
+/* track characteristics */
+
 .track-char-heading {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 25px;
-  color: #444;
-  padding: 0.5rem 0;
+  color: var(--primary-color);
   text-align:center;
-}
-
-.track-char-description{
-  text-align: center; 
-  max-width: 100%; 
-  margin: auto; 
-  font-size: 1.2rem;
-  padding: .5rem 0;
 }
 
 
@@ -633,10 +639,15 @@ body {
 .track-char-sidebar {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  max-width: 360px;
+  gap: 2.5rem;;
   flex: 1;
   min-width: 280px;
+  align-self: flex-start;
+  margin-top:25px;
+}
+
+.track-char-sidebar button{
+  width:175px;
 }
 
 
@@ -658,7 +669,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  height: 500px; /* fix total height */
+  position: 1rem 0;
 }
 
 .track-char-main p {
@@ -669,10 +682,21 @@ body {
   max-width: 500px;
 }
 
+#track-char-description {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  max-width: 750px;
+  height: 120px;         /* reserve space */
+  overflow-y: auto;      /* enable scroll if long */
+  margin-top: 10px;
+}
+
 .track-char-main img {
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .track-char-footer {

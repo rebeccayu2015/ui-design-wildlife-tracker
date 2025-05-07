@@ -18,7 +18,7 @@
 
     <!-- Main Display -->
     <div class="track-char-main">
-      <p id="char-description">Click on a track characteristic to learn more.</p>
+      <p id="track-char-description">Click on a track characteristic to learn more.</p>
       <img id="char-img" src="{{ url_for('static', filename='images/track_characteristics/track_characteristics_base.png') }}" alt="Track characteristic diagram">
     </div>
   </div>
@@ -49,7 +49,7 @@
     const data = characteristics[key];
     if (!data) return;
 
-    document.getElementById('char-description').textContent = data.description;
+    document.getElementById('track-char-description').textContent = data.description;
     document.getElementById('char-img').src = data.image;
     document.getElementById('char-label').textContent = `(${key.replace('_', ' ')})`;
 
