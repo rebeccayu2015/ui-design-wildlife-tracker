@@ -25,12 +25,12 @@ $(document).ready(function () {
             success: function (response) {
                 let correct_matches = response['correct_matches']   
                 let total_number = response['total_number']
-                if (correct_matches == 6 && total_number == 6) { // TODO: add condition to make sure that total_number = total number of prints
+                if (correct_matches == 6 && total_number == 6) {
                     $("#sort-prints-feedback").text("Great job! You matched all " + correct_matches + "/" + total_number + " prints correctly. Click next to continue.");
                     $(".next-btn").removeClass('d-none')
                     $(".next-btn").addClass('d-block')
                 }
-                else{ // TODO: add condition for case where not all the prints are sorted but all the sorted ones are correct
+                else{ 
                     $("#sort-prints-feedback").text("You matched " + correct_matches + "/" + total_number + " prints correctly. Try again!");
                 }
             },
