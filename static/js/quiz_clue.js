@@ -7,9 +7,10 @@ $(document).ready(function () {
             window.location.href = "/quiz-result";
         } else {
             $(".feedback").empty();
-            $(".feedback").append("Sorry. You selected the wrong suspect!");
+            $(".feedback").append("Sorry. You framed the wrong suspect!");
             $(".try-again-btn").removeClass('d-none')
             $(".try-again-btn").addClass('d-block')
+            $(".clue-suspect-card").addClass('disabled')
         }
 
         let data = {
@@ -38,6 +39,7 @@ $(document).ready(function () {
         $(".try-again-btn").removeClass('d-block')
         $(".try-again-btn").addClass('d-none')
         $(".feedback").empty();
+        $(".clue-suspect-card").removeClass('disabled')
     });
 
     $(".clue-btn").on("click", function () {
@@ -74,5 +76,7 @@ $(document).ready(function () {
                 console.log(error);
             }
         });
+        $(".clue-suspect-card").removeClass('disabled')
+        $(".feedback").empty();
     });
 });

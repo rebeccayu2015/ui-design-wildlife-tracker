@@ -19,9 +19,9 @@
                     <div class="row">
                         {% for i in range(1,7) %}
                         <div class="col-md-4">
-                            <div id="{{i}}" class="suspect-card text-center">
+                            <div id="{{i}}" class="suspect-card text-center clue-suspect-card">
                                 <img src="{{ suspects[i|string]['suspect_image'] }}" alt="" class="img-fluid">
-                                <div class="tiny-text">{{ suspects[i|string]['name'] }}</div>
+                                <div class="tiny-tiny-text">{{ suspects[i|string]['name'] }}</div>
                             </div>
                         </div>
                         {% endfor %}

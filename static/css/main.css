@@ -1023,6 +1023,42 @@ body {
   height: 500px;
 }
 
+.clue-suspect-card {
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px;
+  cursor: pointer;
+  text-align: left;
+  max-width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clue-suspect-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.clue-suspect-card:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tiny-tiny-text {
+  font-size: 16px;
+}
+
+.clue-suspect-card.disabled {
+  pointer-events: none;
+  /* Disables all mouse interactions */
+  opacity: 0.6;
+  /* Optional: Visually indicate it's disabled */
+  cursor: not-allowed;
+  /* Optional: Show a "not-allowed" cursor */
+}
+
 /* QUIZ RESULT */
 .result-wrapper {
   justify-content: center;
