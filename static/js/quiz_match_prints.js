@@ -25,12 +25,12 @@ $(document).ready(function () {
                 console.log(response);
                 let correctMatches = response['correct_matches']
                 let totalNumber = response['total_number']
-                if (correctMatches == totalNumber) { // TODO: move button appearance to this block
+                if (correctMatches == totalNumber) {
                     $("#match-prints-feedback").text("Great job! You matched all " + correctMatches + "/" + totalNumber + " prints correctly. Click next to continue.");
                     $(".next-btn").removeClass('d-none')
                     $(".next-btn").addClass('d-block')
                 }
-                else{ // TODO: add condition for case where not all the prints are sorted but all the sorted ones are correct
+                else{
                     $("#match-prints-feedback").text("You matched " + correctMatches + "/" + totalNumber + " prints correctly. Try again!");
                 }
             },

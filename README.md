@@ -1,4 +1,9 @@
 # ui-design-wildlife-tracker
+How to Run Code Locally:
+1. Open Terminal/Command Line
+2. Run ```git clone https://github.com/rebeccayu2015/ui-design-wildlife-tracker.git```
+3. Run ```cd ui-design-wildlife-tracker```
+4. Run ```python3 server.py```
 
 Topic: Identifying animal tracks and what they say about movement/behavior
 

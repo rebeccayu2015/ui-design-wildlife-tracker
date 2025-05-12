@@ -254,7 +254,7 @@ suspects_data = {
         "suspect_id": "1",
         "name": "Brianna the Bear",
         "suspect_image": "/static/images/brianna_the_bear.png",
-        "track_image": "/static/images/bear_paw.png",
+        "track_image": "/static/images/grizzy_bear_track_front.png",
         "family": "bears"
     },
     "2": {
@@ -610,7 +610,7 @@ def clue():
 @app.route('/check_sort_prints', methods=['POST'])
 def check_sort_prints():
     results = request.get_json()  # a dict: {family_id: [suspect_ids]}
-    total_number = 0
+    total_number = 6 # total of 6 prints
     correct_matches = 0
 
     global quiz_score
@@ -618,32 +618,14 @@ def check_sort_prints():
     sort_prints_responses = results
     for family_id, suspect_ids in sort_prints_responses.items():
         box_family = track_data[family_id]['name'].lower()
+
         for suspect_id in suspect_ids:
             suspect_family = suspects_data[suspect_id]['family'].lower()
-            total_number += 1
             if box_family == suspect_family:
                 correct_matches += 1
 
     quiz_score += 1
 
-    '''
-    results = {}
-
-    for box_id, suspects in assignments.items():
-        expected = expected_correlations.get(box_id, set())
-        assigned = set(suspects)
-
-        # Compute intersection and status
-        matched = assigned & expected
-        extra = assigned - expected
-        missing = expected - assigned
-
-        results[box_id] = {
-            "matched": list(matched),
-            "extra": list(extra),
-            "missing": list(missing),
-        }
-    '''
     response = {
         "total_number": total_number,
         "correct_matches": correct_matches
