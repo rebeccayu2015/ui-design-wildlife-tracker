@@ -1,4 +1,6 @@
 # ui-design-wildlife-tracker
+List of Commands: 
+python3 server.py
 
 Topic: Identifying animal tracks and what they say about movement/behavior
 
